@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <script src="https://code.jquery.com/jquery.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1> Restaurant Name</h1>
+
+    <br>
+    <h2> Make your Reservation</h2>
+    <div>
+        <form>
+            Name:<br>
+            <input type="text" id="name"><br>
+            Email: <br>
+            <input type="text" id="email"><br>
+            Phone Number:<br>
+            <input type="text" id="number"><br>
+        </form>
+
+        <button type="submit" class="submit">Submit</button>
+    </div>
+
+<footer class="footer">
+      <div class="container">
+        <p>
+          <a href="/api/reserve">API Table Link</a>
+      </div>
+    </footer>
+
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+$(".submit").on("click", function(event){
+    event.preventDefault();
+
+    var newReservation={
+        customerName: $("#name").val(),
+        customerEmail: $("#email").val(),
+        customerNumber: $("#number").val()
+    };
+    console.log(newReservation)
+
+
+    $.post("/api/reserve", newReservation, function(data){
+   if(data){   alert("Yay!, you are booked!")
+    }
+    else{
+        alert("Sorry we are booked")
+    }
+
+
+
+    });
+});
+
+</script>
