@@ -9,8 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     email: {
       type: DataTypes.TEXT,
-      allowNull: false,
-      len: [1]
+      allowNull: false
     },
     phone: {
       type: DataTypes.INTEGER
