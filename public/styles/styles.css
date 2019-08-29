@@ -58,7 +58,8 @@ body {
 .fav-food-img-container {
   height: 100vh;
   width: 100vw;
-  background-image: url("https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/11/21/15/thanksgiving-feast-main.jpg");
+  background-position: center;
+  background-image: url(../images/headerpic.jpg);
   background-attachment: fixed;
   background-size: cover;
 }
@@ -71,7 +72,7 @@ body {
 
 .menu-container {
   height: 300px;
-  background-image: url("https://www.thespruceeats.com/thmb/-JS_DyFYkSUh_bPchSZGvbooKKw=/3776x2832/smart/filters:no_upscale()/spicy-lime-marinated-eye-of-round-steak-recipe-333788-hero-01-42a8d338594b4a4882d331559591f79e.jpg");
+  background-image: url(../images/bottom_main.jpg);
   background-attachment: fixed;
   background-size: cover;
   display: flex;
