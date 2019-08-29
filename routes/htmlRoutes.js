@@ -24,7 +24,7 @@ module.exports = function(app) {
   });
 
   app.get("/reserve", function(req, res) {
-    res.sendFile(path.join(__dirname, "../routes/reserve.html"));
+    res.sendFile(path.join(__dirname, "../reserve.html"));
   });
 
   // Render 404 page for any unmatched routes
