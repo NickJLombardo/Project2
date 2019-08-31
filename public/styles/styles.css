@@ -5,10 +5,18 @@
 }
 
 body {
+  font-family: 'Bitter', serif;
   font-size: 16px;
   line-height: 1.5;
 }
 
+.list-style-none{
+  list-style: none;
+}
+
+.text-deco-none {
+  text-decoration: none;
+}
 .nav-bar {
   position: absolute;
   top: 0;
@@ -187,11 +195,140 @@ body {
 
 .credit-link {
   color: #fff;
-  text-decoration: none;
   transition: all .5s ease-in;
 }
 
 .credit-link:hover {
   color: #ffc7af;
   transition: all .5s ease-in;
+}
+
+.catering-container {
+  margin-top: 110px;
+  background-image: url('https://avantispeoria.com/wp-content/uploads/2014/04/Catering_Services_92.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: rgba(59, 59, 59, 0.3);
+  background-blend-mode: multiply;
+}
+
+.catering-nav-bar {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: rgba(65, 45, 29, 0.8);
+}
+
+.catering-nav-items {
+  display: flex;
+  justify-content: space-around;
+  width: 1000px;
+  align-items: center;
+}
+.catering-logo {
+  color: #fff;
+  text-shadow: 1px 1px 2px #272727;
+}
+
+.catering-nav-link {
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 2px #272727;
+}
+
+.catering-menu-body {
+  padding: 20px;
+}
+.catering-menu-title {
+  padding-left: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 2px #272727;
+  font-size: 25px;
+}
+
+.menu-items-wrapper {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px 20px;
+}
+
+.menu-item {
+  min-width: 32%;
+  padding: 15px;
+  box-shadow: 0 0 2px #818181;
+  background-color: #feffff;
+  border-radius: 5px;
+}
+
+.menu-item hr {
+  border: none;
+  border-bottom: 1px solid #6e6e6e;
+  margin: 10px 0;
+}
+
+.menu-item-title-price-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.feature {
+  display: inline-block;
+  margin-right: 20px;
+  color: #68280c;
+  background-color: #ffe7e7;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.vegetarian {
+  display: inline;
+  border: 1px solid #01da54;
+  padding: 2px 5px;
+  color: #01da54;
+  border-radius: 50%;
+}
+
+.see-more-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #feffff;
+  color: #302f2f;
+  border: none;
+  font-size: inherit;
+  border-radius: 10px;
+  box-shadow: 0 0 2px #818181;
+}
+
+.cart-container {
+  margin-top: 110px;
+  background-color: rgba(59, 59, 59, 0.3);
+}
+
+.cart-nav-bar {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: rgba(65, 45, 29, 0.8);
+}
+
+.cart-nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.cart-logo {
+  color: #fff;
+  text-shadow: 1px 1px 2px #272727;
+}
+
+.cart-nav-link {
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 2px #272727;
 }
