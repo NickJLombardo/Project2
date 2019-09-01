@@ -37,6 +37,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#">CONTACT</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">CART</a>
+        </li>
       </ul>
     </nav>
     <div class="catering-container">
@@ -54,15 +57,12 @@
           <li class="list-style-none">
             <a class="catering-nav-link text-deco-none" href="#">DINNER</a>
           </li>
-          <li class="list-style-none">
-            <a class="catering-nav-link text-deco-none" href="#">CART</a>
-          </li>
         </ul>
       </div>
       <div class="catering-menu-body">
         <h2 class="catering-menu-title">Breakfast</h2>
         <div class="menu-items-wrapper">
-          <div class="menu-item">
+          <div class="menu-item" data-id="1">
             <div class="menu-item-title-price-wrapper">
               <h2 class="menu-item-title">
                 Seasonal Fruit
@@ -81,7 +81,7 @@
               <p class="vegetarian">V</p>
             </div>
           </div>
-          <div class="menu-item">
+          <div class="menu-item" data-id="2">
             <div class="menu-item-title-price-wrapper">
               <h2 class="menu-item-title">
                 Seasonal Fruit
@@ -357,6 +357,31 @@
         <button class="see-more-btn">See more...</button>
       </div>
     </div>
+    <div class="current-item">
+      <div id="1" class="current-menu-item">
+        <div class="menu-item-title-price-wrapper">
+          <h2 class="menu-item-title">
+            Seasonal Fruit
+          </h2>
+          <p class="menu-item-price">$ 18.20</p>
+        </div>
+        <div class="menu-item-description-wrapper">
+          <p class="min-order-feature">
+            <span class="feature">MOST ORDERED</span
+            ><span class="operator decreaseByOne"> - </span>
+            <input type="number" value="6" class="current-item-quantity" />
+            <span class="operator increaseByOne"> + </span>
+          </p>
+          <br />
+          <p class="description">
+            Apple, Banana, Dragon Fruit, Pineapple, Orange, Water Melon
+          </p>
+          <hr />
+          <p class="vegetarian">V</p>
+          <button class="add-to-cart-btn">Add to cart</button>
+        </div>
+      </div>
+    </div>
     <footer class="footer-container">
       <div class="address-wrapper">
         <div class="footer-logo">
@@ -418,5 +443,57 @@
         </li>
       </ul>
     </footer>
+    <script>
+      const currentMenuItem = document.querySelector(".current-menu-item");
+      const currentItem = document.querySelector(".current-item");
+      const menuItem = document.querySelectorAll(".menu-item");
+      const currentItemQuantity = document.querySelector(
+        ".current-item-quantity"
+      );
+      const getId = (node, className) => {
+        for (; node !== document; node = node.parentNode) {
+          if (node.className === className) return node.dataset.id;
+        }
+      };
+      menuItem.forEach(menuItem =>
+        menuItem.addEventListener("click", e => {
+          e.stopPropagation();
+          let className = "menu-item";
+          let node = e.target;
+          let id = getId(node, className);
+          currentItem.style.display = "flex";
+          currentMenuItem.setAttribute("id", id);
+        })
+      );
+      document
+        .querySelector(".add-to-cart-btn")
+        .addEventListener("click", e => {
+          let id = currentMenuItem.id;
+          let quantity = parseInt(currentItemQuantity.value);
+          localStorage.setItem(
+            "currentCart",
+            JSON.stringify([{ id, quantity }])
+          );
+          console.log(JSON.parse(localStorage.getItem("currentCart"))[0].id);
+        });
+      document.querySelector(".decreaseByOne").addEventListener("click", e => {
+        let currentValue = document.querySelector(".current-item-quantity")
+          .value;
+        if (currentValue !== "0")
+          document.querySelector(".current-item-quantity").value =
+            parseInt(currentValue) - 1;
+      });
+      document.querySelector(".increaseByOne").addEventListener("click", e => {
+        let currentValue = document.querySelector(".current-item-quantity")
+          .value;
+        document.querySelector(".current-item-quantity").value =
+          parseInt(currentValue) + 1;
+      });
+      window.addEventListener("click", function(e) {
+        if (!document.querySelector(".current-menu-item").contains(e.target)) {
+          currentItem.style.display = "none";
+        }
+      });
+    </script>
   </body>
 </html>

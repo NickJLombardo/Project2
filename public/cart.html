@@ -52,41 +52,92 @@
       </div>
       <table class="cart-items-table">
         <thead>
-          <tr>
-            <td>Item Name</td>
-            <td>Unit price</td>
-            <td>Quantity</td>
-            <td>Total</td>
+          <tr class="cart-item-table-head-row">
+            <th class="cart-item-table-head cart-item-table-no">No.</th>
+            <th class="cart-item-table-head cart-item-table-item-name">
+              Item Name
+            </th>
+            <th class="cart-item-table-head cart-item-table-unit-price">
+              Unit price
+            </th>
+            <th class="cart-item-table-head cart-item-table-quantity">
+              Quantity
+            </th>
+            <th class="cart-item-table-head cart-item-table-total">Total</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Item</td>
-            <td>$ 10</td>
-            <td>
-              <select name="quantity">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
+          <tr class="cart-item-table-body-row">
+            <td class="cart-item-table-data">01</td>
+            <td class="cart-item-table-data">Item</td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-item-unit-price"
+            >
+              10.00
             </td>
-            <td>$ 10</td>
+            <td class="cart-item-table-data">
+              <div class="quantity">
+                <span class="operator decreaseByOne"> - </span>
+                <input type="number" value="6" class="current-item-quantity" />
+                <span class="operator increaseByOne"> + </span>
+              </div>
+            </td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-item-price"
+            >
+              10.00
+            </td>
           </tr>
-          <tr>
+          <tr class="cart-item-table-body-row">
+            <td class="cart-item-table-data">01</td>
+            <td class="cart-item-table-data">Item</td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-item-unit-price"
+            >
+              10.00
+            </td>
+            <td class="cart-item-table-data">
+              <div class="quantity">
+                <span class="operator decreaseByOne"> - </span>
+                <input type="number" value="6" class="current-item-quantity" />
+                <span class="operator increaseByOne"> + </span>
+              </div>
+            </td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-item-price"
+            >
+              20.00
+            </td>
+          </tr>
+          <tr class="cart-item-table-body-row taxes-row">
+            <td></td>
             <td>Taxes (Based on the current location)</td>
             <td></td>
             <td></td>
-            <td>$ 0.08</td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-taxes"
+            ></td>
           </tr>
-          <tr>
+          <tr class="cart-item-table-body-row">
+            <td></td>
             <td>Total</td>
             <td></td>
             <td></td>
-            <td>$ 10.08</td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-total"
+            ></td>
+          </tr>
+          <tr class="cart-item-table-body-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="cart-item-table-data">
+              <a class="check-out-btn">Check Out</a>
+            </td>
           </tr>
         </tbody>
       </table>
-      <button class="check-out-btn">Check Out</button>
     </div>
     <footer class="footer-container">
       <div class="address-wrapper">
@@ -149,5 +200,61 @@
         </li>
       </ul>
     </footer>
+    <script>
+      let currentCart = JSON.parse(localStorage.getItem("currentCart"));
+      console.log(currentCart);
+      const getCurrentSubtotalPrice = () => {
+        let itemPriceArr = [];
+        document.querySelectorAll(".cart-item-price").forEach((cartItem, i) => {
+          cartItem.textContent = (
+            parseInt(
+              document.querySelectorAll(".cart-item-unit-price")[i].textContent
+            ) *
+            parseInt(
+              document.querySelectorAll(".current-item-quantity")[i].value
+            )
+          ).toFixed(2);
+          itemPriceArr.push(parseInt(cartItem.textContent));
+        });
+        let totalBeforeTaxes = itemPriceArr.reduce((x, y) => x + y);
+        let taxes = totalBeforeTaxes * 0.08;
+        document.querySelector(".cart-taxes").textContent = taxes.toFixed(2);
+        document.querySelector(".cart-total").textContent = (
+          totalBeforeTaxes + taxes
+        ).toFixed(2);
+      };
+      getCurrentSubtotalPrice();
+      document.querySelectorAll(".decreaseByOne").forEach((btn, i) =>
+        btn.addEventListener("click", e => {
+          let currentValue = document.querySelectorAll(
+            ".current-item-quantity"
+          )[i].value;
+          if (currentValue !== "1") {
+            document.querySelectorAll(".current-item-quantity")[i].value =
+              parseInt(currentValue) - 1;
+            getCurrentSubtotalPrice();
+          }
+        })
+      );
+      document.querySelectorAll(".increaseByOne").forEach((btn, i) =>
+        btn.addEventListener("click", e => {
+          let currentValue = document.querySelectorAll(
+            ".current-item-quantity"
+          )[i].value;
+          document.querySelectorAll(".current-item-quantity")[i].value =
+            parseInt(currentValue) + 1;
+          getCurrentSubtotalPrice();
+        })
+      );
+      document.querySelectorAll(".current-item-quantity").forEach(qty =>
+        qty.addEventListener("keypress", e => {
+          console.log(e.target.value);
+          if (e.target.value < 6) {
+            e.target.value = 6;
+            e.target.textContent = 6;
+          }
+        })
+      );
+    </script>
   </body>
 </html>
