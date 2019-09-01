@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bitter&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles/styles.css" />
+
     <script src="https://kit.fontawesome.com/e99a58f39e.js"></script>
     <title>Munchies</title>
   </head>
@@ -24,7 +29,7 @@
           <a class="nav-link" href="#">SPECIAL EVENTS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/reserve">RESERVATION</a>
+          <a class="nav-link" href="#">RESERVATION</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">CATERING</a>
@@ -34,43 +39,54 @@
         </li>
       </ul>
     </nav>
-    <div class="container">
-      <div class="fav-food-img-container"></div>
-      <div class="about-container">
-        <h1>GOT THE MUNCHIES?</h1>
-        <p>
-          Voted as the <b>The Best New Restaurant of 2019 by Philadelphia Magazine</b>! Munchies is the best 
-          place for all those after work happy hours, 2 am cravings, or - let's be honest - every other time of 
-          the day. Located in the heart of Philadelphia, Munchies is in the prime location to get your evening 
-          going.
-          <br>
-          <br>
-          <!-- link the reserve page here -->
-          <h3>insert reserve button here</h3>
-          <br>
-          Created by Penn LPS Coding Bootcamp survivors Nicholas, Rebeacca, and Min. 
-          Inspired by the long, hungry Monday and Wednesday nights after rough days 
-          at our 9-5's these survivors endured. They have brought to you the 
-          ultimate menu to produce the biggest food coma you ever experienced. 
-        </p>
-        <h5><i>5 Star Ratings From:</i></h5>
-        
-      </div>
-      <div class="menu-container">
-        <h1>Menu</h1>
-        <ul class="food-category-list">
-          <li class="food-category">
-            <a class="food-category-link" href="">Breakfast</a>
-          </li>
-          <li class="food-category">
-            <a class="food-category-link" href="">Lunch</a>
-          </li>
-          <li class="food-category">
-            <a class="food-category-link" href="">Dinner</a>
+    <div class="cart-container">
+      <div class="cart-nav-bar">
+        <div class="cart-logo">
+          <h1>My Cart</h1>
+        </div>
+        <ul class="cart-nav-items">
+          <li class="list-style-none">
+            <a class="cart-nav-link text-deco-none" href="#">EMPTY CART</a>
           </li>
         </ul>
       </div>
-      <div class="contact-container"></div>
+      <table class="cart-items-table">
+        <thead>
+          <tr>
+            <td>Item Name</td>
+            <td>Unit price</td>
+            <td>Quantity</td>
+            <td>Total</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Item</td>
+            <td>$ 10</td>
+            <td>
+              <select name="quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </td>
+            <td>$ 10</td>
+          </tr>
+          <tr>
+            <td>Taxes (Based on the current location)</td>
+            <td></td>
+            <td></td>
+            <td>$ 0.08</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td>$ 10.08</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="check-out-btn">Check Out</button>
     </div>
     <footer class="footer-container">
       <div class="address-wrapper">
@@ -118,11 +134,15 @@
       </div>
       <hr />
       <ul class="credits">
-        <li class="credit-item"><a class="credit-link" href="">Nicholas</a></li>
-        <li class="credit-item"><a class="credit-link" href="">Rebeacca</a></li>
-        <li class="credit-item">
+        <li class="list-style-none">
+          <a class="credit-link text-deco-none" href="">Nicholas</a>
+        </li>
+        <li class="list-style-none">
+          <a class="credit-link text-deco-none" href="">Rebeacca</a>
+        </li>
+        <li class="list-style-none">
           <a
-            class="credit-link"
+            class="credit-link text-deco-none"
             href="https://minkkyaw.github.io/Responsive-Portfolio"
             >Min</a
           >
