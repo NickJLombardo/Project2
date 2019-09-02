@@ -1,4 +1,5 @@
 var db = require("../models");
+var path = require("path");
 
 module.exports = function(app) {
   // Load index page
@@ -20,6 +21,26 @@ module.exports = function(app) {
         example: dbExample
       });
     });
+  });
+
+  app.get("/menu", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/menu.html"));
+  });
+
+  app.get("/reserve", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/reserve.html"));
+  });
+
+  app.get("/catering", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/catering.html"));
+  });
+
+  app.get("/table-layout", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/table-layout.html"));
+  });
+
+  app.get("/cart", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/cart.html"));
   });
 
   // Render 404 page for any unmatched routes

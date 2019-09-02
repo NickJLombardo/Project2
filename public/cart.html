@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bitter&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/styles.css" />
+
+    <script src="https://kit.fontawesome.com/e99a58f39e.js"></script>
+    <title>Munchies</title>
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <div class="logo">
+        <h1>MUNCHIES</h1>
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item">
+          <a class="nav-link" href="/">ABOUT</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/menu">MENU</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/special-events">SPECIAL EVENTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reserve">RESERVATION</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/catering">CATERING</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">CONTACT</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cart">CART</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="cart-container">
+      <div class="cart-nav-bar">
+        <div class="cart-logo">
+          <h1>My Cart</h1>
+        </div>
+        <ul class="cart-nav-items">
+          <li class="list-style-none">
+            <a class="cart-nav-link text-deco-none" href="#">EMPTY CART</a>
+          </li>
+        </ul>
+      </div>
+      <table class="cart-items-table">
+        <thead>
+          <tr class="cart-item-table-head-row">
+            <th class="cart-item-table-head cart-item-table-no">No.</th>
+            <th class="cart-item-table-head cart-item-table-item-name">
+              Item Name
+            </th>
+            <th class="cart-item-table-head cart-item-table-unit-price">
+              Unit price
+            </th>
+            <th class="cart-item-table-head cart-item-table-quantity">
+              Quantity
+            </th>
+            <th class="cart-item-table-head cart-item-table-total">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="cart-item-table-body-row">
+            <td class="cart-item-table-data">01</td>
+            <td class="cart-item-table-data">Item</td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-item-unit-price"
+            >
+              10.00
+            </td>
+            <td class="cart-item-table-data">
+              <div class="quantity">
+                <span class="operator decreaseByOne"> - </span>
+                <input type="number" value="6" class="current-item-quantity" />
+                <span class="operator increaseByOne"> + </span>
+              </div>
+            </td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-item-price"
+            >
+              10.00
+            </td>
+          </tr>
+          <tr class="cart-item-table-body-row">
+            <td class="cart-item-table-data">01</td>
+            <td class="cart-item-table-data">Item</td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-item-unit-price"
+            >
+              10.00
+            </td>
+            <td class="cart-item-table-data">
+              <div class="quantity">
+                <span class="operator decreaseByOne"> - </span>
+                <input type="number" value="6" class="current-item-quantity" />
+                <span class="operator increaseByOne"> + </span>
+              </div>
+            </td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-item-price"
+            >
+              20.00
+            </td>
+          </tr>
+          <tr class="cart-item-table-body-row taxes-row">
+            <td></td>
+            <td>Taxes (Based on the current location)</td>
+            <td></td>
+            <td></td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-taxes"
+            ></td>
+          </tr>
+          <tr class="cart-item-table-body-row">
+            <td></td>
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-total"
+            ></td>
+          </tr>
+          <tr class="cart-item-table-body-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="cart-item-table-data">
+              <a class="check-out-btn">Check Out</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="footer-container">
+      <div class="address-wrapper">
+        <div class="footer-logo">
+          <h1>MUNCHIES</h1>
+        </div>
+        <div class="location-wrapper">
+          <h2>LOCATION</h2>
+          <div class="location-details">
+            <p>111 Sample Street</p>
+            <p>Philadelphia, PA 19111</p>
+            <p>215.123.1234</p>
+            <p>munchies@gmail.com</p>
+          </div>
+          <ul class="social-media-items">
+            <li class="social-media-item">
+              <a class="social-media-link" href="#"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+            </li>
+            <li class="social-media-item">
+              <a class="social-media-link" href="#"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </li>
+            <li class="social-media-item">
+              <a class="social-media-link" href="#"
+                ><i class="fab fa-twitter"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="sign-up-wrapper">
+          <h2>KEEP IN TOUCH</h2>
+          <form action="">
+            <label for=""
+              >Enter email and sign up for promotions and other discounts</label
+            >
+            <br />
+            <input type="text" class="form-input" placeholder="Enter email" />
+            <br />
+            <button class="sign-up-btn">Sign Up</button>
+          </form>
+        </div>
+      </div>
+      <hr />
+      <ul class="credits">
+        <li class="list-style-none">
+          <a class="credit-link text-deco-none" href="">Nicholas</a>
+        </li>
+        <li class="list-style-none">
+          <a class="credit-link text-deco-none" href="">Rebeacca</a>
+        </li>
+        <li class="list-style-none">
+          <a
+            class="credit-link text-deco-none"
+            href="https://minkkyaw.github.io/Responsive-Portfolio"
+            >Min</a
+          >
+        </li>
+      </ul>
+    </footer>
+    <script>
+      let currentCart = JSON.parse(localStorage.getItem("currentCart"));
+      console.log(currentCart);
+      const getCurrentSubtotalPrice = () => {
+        let itemPriceArr = [];
+        document.querySelectorAll(".cart-item-price").forEach((cartItem, i) => {
+          cartItem.textContent = (
+            parseInt(
+              document.querySelectorAll(".cart-item-unit-price")[i].textContent
+            ) *
+            parseInt(
+              document.querySelectorAll(".current-item-quantity")[i].value
+            )
+          ).toFixed(2);
+          itemPriceArr.push(parseInt(cartItem.textContent));
+        });
+        let totalBeforeTaxes = itemPriceArr.reduce((x, y) => x + y);
+        let taxes = totalBeforeTaxes * 0.08;
+        document.querySelector(".cart-taxes").textContent = taxes.toFixed(2);
+        document.querySelector(".cart-total").textContent = (
+          totalBeforeTaxes + taxes
+        ).toFixed(2);
+      };
+      getCurrentSubtotalPrice();
+      document.querySelectorAll(".decreaseByOne").forEach((btn, i) =>
+        btn.addEventListener("click", e => {
+          let currentValue = document.querySelectorAll(
+            ".current-item-quantity"
+          )[i].value;
+          if (currentValue !== "1") {
+            document.querySelectorAll(".current-item-quantity")[i].value =
+              parseInt(currentValue) - 1;
+            getCurrentSubtotalPrice();
+          }
+        })
+      );
+      document.querySelectorAll(".increaseByOne").forEach((btn, i) =>
+        btn.addEventListener("click", e => {
+          let currentValue = document.querySelectorAll(
+            ".current-item-quantity"
+          )[i].value;
+          document.querySelectorAll(".current-item-quantity")[i].value =
+            parseInt(currentValue) + 1;
+          getCurrentSubtotalPrice();
+        })
+      );
+      document.querySelectorAll(".current-item-quantity").forEach(qty =>
+        qty.addEventListener("keypress", e => {
+          console.log(e.target.value);
+          if (e.target.value < 6) {
+            e.target.value = 6;
+            e.target.textContent = 6;
+          }
+        })
+      );
+    </script>
+  </body>
+</html>
