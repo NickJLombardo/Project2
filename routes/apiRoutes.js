@@ -3,6 +3,12 @@ var reservationData = require("../public/data/reservation.js");
 
 module.exports = function(app) {
   // Get all examples
+  app.post("/api/menu/", function(req, res) {
+    db.menu.create(req.body).then(function(result) {
+      res.json(result);
+    });
+  });
+
   app.get("/api/examples", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);

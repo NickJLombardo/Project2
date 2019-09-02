@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS munchiesdb;
+CREATE DATABASE munchiesdb;
+
