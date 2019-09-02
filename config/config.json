@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "12345Mkk",
-    "database": "exampledb",
+    "database": "munchiesdb",
     "host": "localhost",
     "dialect": "mysql"
   },

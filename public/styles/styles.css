@@ -307,7 +307,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(59, 59, 59, 0.8);
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   transition: all .5s ease-in;
@@ -471,4 +471,123 @@ input[type=number] {
 
 .check-out-btn:hover {
   box-shadow: 0 0 0 3px #004855;
+}
+
+.restaurant-layout-container {
+  margin-top: 110px;
+  background-color: #ffffff;
+  padding: 40px 20px 20px;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+
+.floor-layout-wrapper {
+  min-width: 500px;
+
+}
+
+.floor-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  padding: 20px;
+  position: relative;
+  background-image: url('./../interlaced.png');
+  /* background-image: linear-gradient(90deg, transparent 50%, rgb(208, 236, 253) 50%); */
+  /* background-color:#fff4eb; */
+  /* background-size: 17px 64px; */
+  border: 3px solid #311204;
+}
+
+.floor-label {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.entrance {
+  position: absolute;
+  top: -23px;
+  left: calc(50% - 50px);
+  height: 20px;
+  width: 100px;
+  background-color: #442323;
+  text-align: center;
+  color: #fff;
+}
+
+.escalator {
+  background-color: rgb(128, 128, 128);
+  background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
+  background-size: 20px 20px;
+  border-top: 2px solid #272727;
+  border-bottom: 2px solid #272727;
+  height: 50px;
+  width: 100px;
+  transform: rotate(90deg);
+  margin: 30px auto 10px;
+  cursor: pointer;
+  transition: all .5s ease-in;
+  font-size: 14px;
+  text-align: center;
+}
+
+.escalator-up {
+  border-right: 2px solid #272727;
+}
+
+.escalator-down {
+  border-left: 2px solid #272727;
+}
+
+.table {
+  color: #6b2f15;
+  height: 60px;
+  width: 60px;
+  padding: 17px 15px;
+  margin: 40px auto;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px #535353;
+  transition: all .5s ease-in;
+  text-align: center;
+}
+.table-label {
+  transition: all 0.5s ease-in;
+}
+
+.table:hover .table-label {
+  transform: scale(1.3);
+}
+
+.table:hover {
+  box-shadow: 0 0 0 3px #812020;
+}
+
+.table-square {
+  border-radius: 0px;
+  background-color: #42e1fd;
+}
+
+.table-circle {
+  border-radius: 50%;
+  background-color: #fafd42;
+}
+
+.customize-table {
+  position: absolute;
+  top: 20px;
+  left: 400px;
+  color: #fff;
+  background-color: #504f4f;
+  height: 100px;
+  width: 20px;
+  padding: 17px 15px;
+  border-radius: 10px;
+  transform: rotate(45deg);
+  margin: 40px auto;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px #535353;
+  transition: all .5s ease-in;
+  text-align: center;
 }
