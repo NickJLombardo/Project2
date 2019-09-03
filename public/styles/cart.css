@@ -1,0 +1,139 @@
+.cart-container {
+  margin-top: 120px;
+  background-color: #fff;
+}
+
+.cart-nav-bar {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: rgba(65, 45, 29, 0.8);
+}
+
+.cart-nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.cart-logo {
+  color: #fff;
+  text-shadow: 1px 1px 2px #272727;
+}
+
+.cart-nav-link {
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 2px #272727;
+}
+
+
+.cart-items-table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.cart-item-table-head-row {
+  border-bottom: 1px solid #302f2f;
+}
+
+.cart-item-table-head {
+  padding: 10px 0;
+}
+
+.cart-item-table-no {
+  width: 10%;
+}
+
+.cart-item-table-unit-price {
+  width: 10%;
+}
+
+.cart-item-table-quantity {
+  width: 15%;
+}
+
+.cart-item-table-total {
+  width: 15%;
+}
+
+.current-item-quantity {
+  width: 50px;
+  font-family: inherit;
+  color: inherit;
+  background-color: inherit;
+  font-size: inherit;
+  border-radius: 5px;
+  border: 1px solid #302f2f;
+  padding: 5px;
+  text-align: right;
+}
+
+.operator {
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+.current-item-quantity:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #a8a8a8;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.current-menu-item hr {
+  border: none;
+  border-bottom: 1px solid #302f2f;
+  margin: 20px 0;
+}
+/* .cart-item-table-body-row {
+
+} */
+
+.taxes-row {
+  border-top: 1px solid #302f2f;
+}
+
+.cart-item-table-data {
+  padding: 5px 10px;
+}
+
+.cart-item-table-body-row>.cart-item-table-data:first-child {
+  text-align: center;
+}
+
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item-table-data-number {
+  text-align: right;
+}
+
+.check-out-btn {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #e2f9ff;
+  margin: 20px 10px; 
+  box-shadow: 0 0 0 1px #004855;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all .5s ease-in;
+}
+
+.check-out-btn:hover {
+  box-shadow: 0 0 0 3px #004855;
+}

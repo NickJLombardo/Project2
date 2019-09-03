@@ -1,0 +1,30 @@
+.menu-img {
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background-image: url(../images/menu-background.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    }
+/* .food-category-list {
+    display:inline-block;
+} */
+
+.food-category {
+  list-style: none;
+  float: left;
+  padding: 15px;
+}
+
+.food-category-link {
+  background-color: rgba(233, 181, 102, 0.952);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}

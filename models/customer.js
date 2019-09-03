@@ -1,34 +1,34 @@
 module.exports = function(sequelize, DataTypes) {
   var Customer = sequelize.define("customer", {
-    name: {
+    customer_name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [3]
       }
     },
-    username: {
+    customer_username: {
       type: DataTypes.STRING,
       validate: {
         len: [3]
       }
     },
-    password: {
+    customer_password: {
       type: DataTypes.STRING,
       validate: {
         len: [6]
       }
     },
-    birthday: {
+    customer_birthday: {
       type: DataTypes.STRING
     },
-    email: {
+    customer_email: {
       type: DataTypes.INTEGER
     },
-    phone: {
+    customer_phone: {
       type: DataTypes.INTEGER
     },
-    totalAmount: {
+    customer_totalAmount: {
       type: DataTypes.INTEGER,
       defaultValue: 0
     }
