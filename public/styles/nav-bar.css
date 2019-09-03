@@ -1,0 +1,78 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 30px;
+  color: rgb(201, 87, 12);
+}
+
+h2{
+  font-family: 'Luckiest Guy', cursive;
+}
+
+p,
+li {
+  font-family: 'Special Elite', cursive;
+}
+
+body {
+  font-family: 'Bitter', serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.list-style-none{
+  list-style: none;
+}
+
+.text-deco-none {
+  text-decoration: none;
+}
+.nav-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #fadfd0;
+  opacity: .6;
+  transition: opacity .5s ease-in;
+}
+
+.nav-bar:hover {
+  opacity: .9;
+}
+
+.logo {
+  color: #311204;
+  text-align: center;
+  padding: 20px 0 10px;
+  user-select: none;
+}
+
+.nav-items {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 10px 0 10px;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-link {
+  color: #311204;
+  text-decoration: none;
+  padding: 5px 0;
+  border-bottom: 1px solid #fadfd0;
+  transition: all .5s ease-in;
+}
+
+.nav-link:hover {
+  color: #6b2f15;
+  border-bottom: 1px solid #68280c;
+}
