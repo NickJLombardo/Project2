@@ -21,6 +21,14 @@ module.exports = function(sequelize, DataTypes) {
     table_people: {
       type: DataTypes.INTEGER,
       defaultValue: 4
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal("NOW()")
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal("NOW()")
     }
   });
 

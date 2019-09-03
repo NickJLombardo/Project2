@@ -49,3 +49,27 @@ INSERT INTO menus (menu_name, menu_category, menu_subcategory, menu_price, menu_
 INSERT INTO menus (menu_name, menu_category, menu_subcategory, menu_price, menu_catering_availability, menu_catering_min_order) VALUES ('Cabernet Franc', 'Drinks', 'Red Wine', 5.75, true, 50);
 INSERT INTO menus (menu_name, menu_category, menu_subcategory, menu_price, menu_catering_availability, menu_catering_min_order) VALUES ('Nebbiolo', 'Drinks', 'Red Wine', 4.50, true, 50);
 INSERT INTO menus (menu_name, menu_category, menu_subcategory, menu_price, menu_catering_availability, menu_catering_min_order) VALUES ('Grenache', 'Drinks', 'Red Wine', 4.00, true, 50);
+
+INSERT INTO menus (table_name, table_people) VALUES ('101', 6);
+INSERT INTO menus (table_name, table_people) VALUES ('102', 8);
+INSERT INTO menus (table_name, table_people) VALUES ('103', 6);
+INSERT INTO menus (table_name, table_people) VALUES ('104', 6);
+INSERT INTO menus (table_name, table_people) VALUES ('105', 8);
+INSERT INTO menus (table_name, table_people) VALUES ('106', 6);
+INSERT INTO menus (table_name, table_people) VALUES ('107', 6);
+INSERT INTO menus (table_name, table_people) VALUES ('108', 8);
+INSERT INTO menus (table_name, table_people) VALUES ('109', 4);
+INSERT INTO menus (table_name, table_people) VALUES ('110', 4);
+INSERT INTO menus (table_name, table_people) VALUES ('111', 4);
+INSERT INTO menus (table_name, table_people) VALUES ('201', 6);
+INSERT INTO menus (table_name, table_people) VALUES ('202', 8);
+INSERT INTO menus (table_name, table_people) VALUES ('203', 6);
+INSERT INTO menus (table_name, table_people) VALUES ('204', 6);
+INSERT INTO menus (table_name, table_people) VALUES ('205', 8);
+INSERT INTO menus (table_name, table_people) VALUES ('206', 6);
+INSERT INTO menus (table_name, table_people) VALUES ('207', 6);
+INSERT INTO menus (table_name, table_people) VALUES ('208', 8);
+INSERT INTO menus (table_name, table_people) VALUES ('209', 4);
+INSERT INTO menus (table_name, table_people) VALUES ('210', 4);
+INSERT INTO menus (table_name, table_people) VALUES ('211', 4);
+
