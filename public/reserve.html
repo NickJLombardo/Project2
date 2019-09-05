@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e99a58f39e.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src= "js/reserve.js"> </script> 
     <link rel="stylesheet" href= "./styles/footer.css">
     <link rel="stylesheet" href= "./styles/reserve.css">
     <link rel="stylesheet" href= "./styles/nav-bar.css">
@@ -20,25 +21,28 @@
       </div>
       <ul class="nav-items">
         <li class="nav-item">
-          <a class="nav-link" href="#">ABOUT</a>
+          <a class="nav-link" href="/">ABOUT</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">MENU</a>
+          <a class="nav-link" href="./menu">MENU</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">SPECIAL EVENTS</a>
+          <a class="nav-link" href="/special-events">SPECIAL EVENTS</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/reserve">RESERVATION</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">CATERING</a>
+          <a class="nav-link" href="/catering">CATERING</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">CONTACT</a>
+          <a class="nav-link" href="/contact">CONTACT</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cart">CART</a>
         </li>
       </ul>
-    </nav> 
+    </nav>
     <div class= form>
         <form>
             <h1>Munchies</h1>
@@ -48,7 +52,10 @@
             <input type="text" id="email"><br>
             Phone Number:<br>
             <input type="text" id="number"><br>
+            <label for="start">Reservation Date:</label>
+            <input type="date" id="start" name="date-start" value="2019-09-04" min="2019-09-04" max="2018-12-31">
         </form>
+        <br>
         <button type="submit" class="submit">Submit</button>
     </div>
 
