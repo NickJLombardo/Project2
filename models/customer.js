@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Customer = sequelize.define("customer", {
+  let Customer = sequelize.define("Customer", {
     customer_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -23,14 +23,26 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     customer_email: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     customer_phone: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     customer_totalAmount: {
       type: DataTypes.INTEGER,
       defaultValue: 0
+    },
+    customer_member_type: {
+      type: DataTypes.STRING,
+      defaultValue: "platinum"
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal("NOW()")
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal("NOW()")
     }
   });
 
