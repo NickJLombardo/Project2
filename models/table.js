@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Table = sequelize.define("table", {
+  var Table = sequelize.define("Table", {
     table_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -31,6 +31,12 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.literal("NOW()")
     }
   });
+  Table.assicaite = function(models) {
+    Table.hasMany(models.Reservation, {
+      onUpdate: "CASCADE",
+      onDelete: "CASCADE"
+    });
+  };
 
   return Table;
 };

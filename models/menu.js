@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Menu = sequelize.define("menu", {
+  let Menu = sequelize.define("Menu", {
     menu_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -42,6 +42,5 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.literal("NOW()")
     }
   });
-
   return Menu;
 };
