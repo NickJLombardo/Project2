@@ -1,0 +1,28 @@
+.special-events-container {
+    height: 60vh;
+    width: 100vw;
+    background-color: rgb(221, 217, 217);
+  }
+  
+  .tailgate {
+    /* width: 700px;
+    height: 412px; */
+    float: right;
+  }
+  
+  .fans-img {
+    width: 700px;
+    height: 412px;
+    /* float: left; */
+  }
+  
+  .special-events-summary {
+    float: left;
+    text-align: center;
+    padding-top: 10%;
+    margin-left: 1%;
+    background-color: #caa256;
+    color: white;
+    height: 412px;
+  }
+

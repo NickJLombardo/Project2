@@ -7,6 +7,7 @@
   background-size: cover;
 }
 
+
 .about-container {
   text-align: center;
   padding: 20px 200px;
@@ -97,20 +98,63 @@
   box-shadow: 0 12px 16px 0 rgba(255, 252, 252, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
 
 }
-/* Catering Section */
-.catering-container {
-  height: 60vh;
+/* SPECIAL EVENTS SECTION */
+.special-events-container {
+  /* height: 60vh; */
+  height: 412px;
+
   width: 100vw;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(128, 125, 125);
+}
+
+.tailgate {
+  /* width: 700px;
+  height: 412px; */
+  float: right;
+}
+
+.fans-img {
+  width: 700px;
+  height: 412px;
+  /* float: left; */
+}
+
+.special-events-summary {
+  float: left;
+  text-align: center;
+  padding-top: 10%;
+  margin-left: 1%;
+  background-color: #caa256;
+  color: white;
+  height: 412px;
+}
+
+/* CATERING SECTION */
+.catering-container {
+  /* height: 60vh; */
+  height: 412px;
+
+  width: 100vw;
+  background-color: rgb(221, 217, 217);
 }
 .platter-container {
   float: right;
 }
-.platter-img {
+#explodeVideo {
+  /* position: fixed; */
+  /* right: 0;
+  bottom: 0; */
+  width: 732px;
+  height: 100%;
+  /* min-width: 100%;
+  min-height: 100%; */
+}
+/* .platter-img {
   width: 700px;
   height: 412px;
-}
+} */
 .catering-summary {
+  /* float: right; */
   text-align: center;
   padding-top: 10%;
   background-color: #107595;
