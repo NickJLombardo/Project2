@@ -70,77 +70,7 @@
             <th class="cart-item-table-head cart-item-table-total">Total</th>
           </tr>
         </thead>
-        <tbody>
-          <tr class="cart-item-table-body-row">
-            <td class="cart-item-table-data">01</td>
-            <td class="cart-item-table-data">Item</td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-item-unit-price"
-            >
-              10.00
-            </td>
-            <td class="cart-item-table-data">
-              <div class="quantity">
-                <span class="operator decreaseByOne"> - </span>
-                <input type="number" value="6" class="current-item-quantity" />
-                <span class="operator increaseByOne"> + </span>
-              </div>
-            </td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-item-price"
-            >
-              10.00
-            </td>
-          </tr>
-          <tr class="cart-item-table-body-row">
-            <td class="cart-item-table-data">01</td>
-            <td class="cart-item-table-data">Item</td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-item-unit-price"
-            >
-              10.00
-            </td>
-            <td class="cart-item-table-data">
-              <div class="quantity">
-                <span class="operator decreaseByOne"> - </span>
-                <input type="number" value="6" class="current-item-quantity" />
-                <span class="operator increaseByOne"> + </span>
-              </div>
-            </td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-item-price"
-            >
-              20.00
-            </td>
-          </tr>
-          <tr class="cart-item-table-body-row taxes-row">
-            <td></td>
-            <td>Taxes (Based on the current location)</td>
-            <td></td>
-            <td></td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-taxes"
-            ></td>
-          </tr>
-          <tr class="cart-item-table-body-row">
-            <td></td>
-            <td>Total</td>
-            <td></td>
-            <td></td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-total"
-            ></td>
-          </tr>
-          <tr class="cart-item-table-body-row">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="cart-item-table-data">
-              <a class="check-out-btn">Check Out</a>
-            </td>
-          </tr>
-        </tbody>
+        <tbody class="cart-item-table-body"></tbody>
       </table>
     </div>
     <footer class="footer-container">
@@ -205,20 +135,88 @@
       </ul>
     </footer>
     <script>
-      let currentCart = JSON.parse(localStorage.getItem("currentCart"));
-      console.log(currentCart);
+      let cartFormat = `<tr class="cart-item-table-body-row">
+            <td class="cart-item-table-data">{%ID%}</td>
+            <td class="cart-item-table-data">{%NAME%}</td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-item-unit-price"
+            >
+              {%PRICE%}
+            </td>
+            <td class="cart-item-table-data">
+              <div class="quantity">
+                <span class="operator decreaseByOne"> - </span>
+                <input type="number" value="{%QUANTITY%}" class="current-item-quantity" />
+                <span class="operator increaseByOne"> + </span>
+              </div>
+            </td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-item-price"
+            >
+            </td>
+          </tr>`;
+      let additionalCartRow = `<tr class="cart-item-table-body-row taxes-row">
+            <td></td>
+            <td>Taxes (Based on the current location)</td>
+            <td></td>
+            <td></td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-taxes"
+            ></td>
+          </tr>
+          <tr class="cart-item-table-body-row">
+            <td></td>
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-total"
+            ></td>
+          </tr>
+          <tr class="cart-item-table-body-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="cart-item-table-data">
+              <a class="check-out-btn">Order</a>
+            </td>
+          </tr>
+          <tr class="cart-item-table-body-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="cart-item-table-data">
+              <a class="check-out-btn">Check Out</a>
+            </td>
+          </tr>`;
+      const textReplace = (cartFormat, item, idx) => {
+        const { id, name, price, quantity } = item;
+        let output = cartFormat.replace(`{%ID%}`, idx);
+        output = output.replace("{%NAME%}", name);
+        output = output.replace("{%PRICE%}", price);
+        output = output.replace("{%QUANTITY%}", quantity);
+        return output;
+      };
+      let currentCart = JSON.parse(localStorage.getItem("cartItems"));
+      let innerHtmlText = currentCart.map((item, i) => {
+        return textReplace(cartFormat, item, i + 1);
+      });
+      document.querySelector(".cart-item-table-body").innerHTML =
+        innerHtmlText.join("") + additionalCartRow;
       const getCurrentSubtotalPrice = () => {
         let itemPriceArr = [];
         document.querySelectorAll(".cart-item-price").forEach((cartItem, i) => {
           cartItem.textContent = (
-            parseInt(
+            parseFloat(
               document.querySelectorAll(".cart-item-unit-price")[i].textContent
             ) *
-            parseInt(
+            parseFloat(
               document.querySelectorAll(".current-item-quantity")[i].value
             )
           ).toFixed(2);
-          itemPriceArr.push(parseInt(cartItem.textContent));
+          itemPriceArr.push(parseFloat(cartItem.textContent));
         });
         let totalBeforeTaxes = itemPriceArr.reduce((x, y) => x + y);
         let taxes = totalBeforeTaxes * 0.08;

@@ -1,8 +1,48 @@
 var db = require("../models");
 var reservationData = require("../public/data/reservation.js");
 
+const makeReservation = (reservation, res) => {
+  const {
+    reservationName,
+    reservationNoOfPeople,
+    tableReservedTime,
+    CustomerId,
+    tableId,
+    menuId
+  } = reservation;
+  db.Reservation.create({
+    reservationName,
+    reservationNoOfPeople,
+    CustomerId
+  })
+    .then(function(result) {
+      console.log(tableId);
+      db.Table.update(
+        {
+          tableReserved: true,
+          tableReservedTime,
+          tableAvailability: false,
+          CustomerId
+        },
+        {
+          where: {
+            id: tableId
+          }
+        }
+      );
+    })
+    .then(result => {
+      res.json(result);
+    });
+};
+
+const makeOrder = (tableMenus, res) => {
+  tableMenus.map(tableMenu =>
+    db.TableMenu.create(tableMenu).then(result => res.json(result))
+  );
+};
+
 module.exports = function(app) {
-  // Get all examples
   app.post("/api/menus/", function(req, res) {
     db.Menu.create(req.body).then(function(result) {
       res.json(result);
@@ -10,8 +50,12 @@ module.exports = function(app) {
   });
 
   app.get("/api/menus/", function(req, res) {
-    db.Menu.findAll({}).then(function(result) {
-      res.json(result);
+    let query = {};
+    if (req.query.category) {
+      query.menuCategory = req.query.category;
+    }
+    db.Menu.findAll({ where: query }).then(function(menus) {
+      res.json(menus);
     });
   });
 
@@ -40,28 +84,36 @@ module.exports = function(app) {
   });
 
   app.get("/api/reservations", function(req, res) {
-    db.Reservation.findAll({}).then(function(result) {
+    var query = {};
+    if (req.query.id) {
+      query.id = req.query.id;
+    }
+    db.Reservation.findAll({
+      where: query,
+      include: [db.Customer]
+    }).then(function(result) {
       res.json(result);
     });
   });
 
   app.post("/api/reservations", function(req, res) {
-    console.log(req.body);
-    const {
-      reservation_name,
-      reservation_no_of_people,
-      reservation_time,
-      CustomerId,
-      menuId
-    } = req.body;
-    db.Reservation.create({
-      reservation_name,
-      reservation_no_of_people,
-      reservation_time
-    }).then(function(result) {
-      db.CustomerReservation.create({ CustomerId, ReservationId: 1 });
-    });
-    res.end();
+    if (!Object.keys(req.body).includes("tableId"))
+      db.Table.findAll({
+        where: {
+          tableAvailability: true
+        }
+      })
+        .then(function(result) {
+          req.body.tableId = result[0].dataValues.id;
+        })
+        .then(function(result) {
+          makeReservation(req.body, res);
+        });
+    else makeReservation(req.body, res);
+  });
+
+  app.post("/api/order", (req, res) => {
+    makeOrder(req.body, res);
   });
 
   app.get("/api/reserve", function(req, res) {

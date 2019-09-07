@@ -1,40 +1,48 @@
 module.exports = function(sequelize, DataTypes) {
-  let Customer = sequelize.define("Customer", {
-    customer_name: {
+  var Customer = sequelize.define("Customer", {
+    customerName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [3]
-      }
+      },
+      field: "customer_name"
     },
-    customer_username: {
+    customerUsername: {
       type: DataTypes.STRING,
       validate: {
         len: [3]
-      }
+      },
+      field: "customer_username"
     },
-    customer_password: {
+    customerPassword: {
       type: DataTypes.STRING,
       validate: {
         len: [6]
-      }
+      },
+      field: "customer_password"
     },
-    customer_birthday: {
-      type: DataTypes.STRING
-    },
-    customer_email: {
-      type: DataTypes.STRING
-    },
-    customer_phone: {
-      type: DataTypes.STRING
-    },
-    customer_totalAmount: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0
-    },
-    customer_member_type: {
+    customerBirthday: {
       type: DataTypes.STRING,
-      defaultValue: "platinum"
+      field: "customer_birthday"
+    },
+    customerEmail: {
+      type: DataTypes.STRING,
+      field: "customer_email"
+    },
+    customerPhone: {
+      type: DataTypes.STRING,
+      field: "customer_phone"
+    },
+    customerTotalAmount: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+      field: "customer_total_amount"
+    },
+    customerMemberType: {
+      type: DataTypes.STRING,
+      defaultValue: "Bronze",
+      field: "customer_member_type"
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -45,6 +53,15 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.literal("NOW()")
     }
   });
+
+  Customer.associate = function(models) {
+    Customer.hasMany(models.Reservation, {
+      onDelete: "cascade"
+    });
+    Customer.hasMany(models.Table, {
+      onDelete: "cascade"
+    });
+  };
 
   return Customer;
 };

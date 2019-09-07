@@ -1,37 +1,45 @@
 module.exports = function(sequelize, DataTypes) {
   let Menu = sequelize.define("Menu", {
-    menu_name: {
+    menuName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [2]
-      }
+      },
+      field: "menu_name"
     },
-    menu_description: {
-      type: DataTypes.TEXT
+    menuDescription: {
+      type: DataTypes.TEXT,
+      field: "menu_description"
     },
-    menu_category: {
+    menuCategory: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      field: "menu_category"
     },
-    menu_subcategory: {
+    menuSubcategory: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      field: "menu_subcategory"
     },
-    menu_price: {
+    menuPrice: {
       type: DataTypes.FLOAT,
-      allowNull: false
+      allowNull: false,
+      field: "menu_price"
     },
-    menu_feature: {
-      type: DataTypes.STRING
+    menuFeature: {
+      type: DataTypes.STRING,
+      field: "menu_feature"
     },
-    menu_catering_availability: {
+    menuCateringAvailability: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false
+      defaultValue: false,
+      field: "menu_catering_availability"
     },
-    menu_catering_min_order: {
+    menuCateringMinOrder: {
       type: DataTypes.INTEGER,
-      defaultValue: 0
+      defaultValue: 0,
+      field: "menu_catering_min_order"
     },
     createdAt: {
       type: DataTypes.DATE,

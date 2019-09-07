@@ -1,8 +1,8 @@
-var db = require("../models");
-var path = require("path");
+const db = require("../models");
+const path = require("path");
+const fs = require("fs");
 
 module.exports = function(app) {
-  // Load index page
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("index", {
@@ -24,6 +24,42 @@ module.exports = function(app) {
   });
 
   app.get("/menu", function(req, res) {
+    const subCateArr = function(menus, menuCategory) {
+      let subCategory = new Array();
+      menus
+        .filter(menu1 => menu1.menuCategory === menuCategory)
+        .map(menu => {
+          if (!subCategory.includes(menu.menuSubcategory))
+            subCategory[menu.menuSubcategory] = menus
+              .filter(
+                item =>
+                  item.menuSubcategory === menu.menuSubcategory &&
+                  item.menuCategory === menu.menuCategory
+              )
+              .map(item => ({
+                menuName: item["menuName"],
+                menuDescription: item["menuDescription"],
+                menuPrice: item["menuPrice"]
+              }));
+        });
+
+      return subCategory;
+    };
+
+    const displayMenu = async () => {
+      const res = await fetch("./api/menus/");
+      const menus = await res.json();
+      let menusByCategory = [];
+      menus.map(menu => {
+        if (!Object.keys(menusByCategory).includes(menu.menuCategory))
+          menusByCategory[menu.menuCategory] = new Array(
+            subCateArr(menus, menu.menuCategory)
+          );
+      });
+      return menusByCateory;
+    };
+
+    displayMenu();
     res.sendFile(path.join(__dirname, "../public/menu.html"));
   });
 

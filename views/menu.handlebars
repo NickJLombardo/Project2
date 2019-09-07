@@ -1,0 +1,65 @@
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1>{{msg}}</h1>
+        <h2>This is our Home Page!</h2>
+        <form class="clearfix mb-4" action="POST">
+          <div class="form-group">
+            <label for="example-text">Example Text</label>
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+          </div>
+          <div class="form-group">
+            <label for="example-description">Example Description</label>
+            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+          </div>
+          <button id="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+        <h3>Examples:</h3>
+        <ul id="example-list" class="list-group">
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="menu-container">
+  <h1 id="menu-title">Menu</h1>
+  <ul class="food-category-list">
+    <li class="food-category">
+      <a class="food-category-link" href="./breakfast.html" target="_blank"
+        >Breakfast</a
+      >
+    </li>
+    <li class="food-category">
+      <a class="food-category-link" href="./lunch.html" target="_blank"
+        >Lunch</a
+      >
+    </li>
+    <li class="food-category">
+      <a class="food-category-link" href="./dinner.html" target="_blank"
+        >Dinner</a
+      >
+    </li>
+    <li class="food-category">
+      <a class="food-category-link" href="./drinks.html" target="_blank"
+        >Drinks</a
+      >
+    </li>
+  </ul>
+  <div class="menu-items-container">
+    {{#each menus}}
+      <div class="menu-item">
+        <div class="menu-item-name-price" data-id="{{this.id}}">
+          <h2 class="menu-item-name">{{this.menuName}}</h2>
+          <p class="menu-item-price">{{this.menuPrice}}</p>
+          <p class="menu-item-description">{{this.menuDescription}}</p>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+<script src="/js/menu.js"></script>
+          
