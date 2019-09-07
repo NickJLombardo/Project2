@@ -1,6 +1,7 @@
 {
   "development": {
     "username": "root",
+
     "password": "root",
     "database": "munchiesdb",
     "host": "localhost",
@@ -8,6 +9,8 @@
   },
   "test": {
     "username": "root",
+
+
     "password": "root",
     "database": "testdb",
     "host": "localhost",

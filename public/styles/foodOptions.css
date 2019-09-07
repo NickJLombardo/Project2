@@ -1,0 +1,10 @@
+/* font-family: 'Monoton', cursive;
+font-family: 'Barriecito', cursive; */
+.left-side {
+    float: left;
+    padding: 50px;
+}
+.right-side {
+    float: right;
+    padding: 50px;
+}
