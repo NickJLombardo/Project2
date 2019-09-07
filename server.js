@@ -1,4 +1,7 @@
 require("dotenv").config();
+require("dotenv-json")();
+const dotenvJSON = require("dotenv-json");
+dotenvJSON({ path: "./config/config.json" });
 var express = require("express");
 var exphbs = require("express-handlebars");
 

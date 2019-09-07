@@ -1,26 +1,31 @@
 module.exports = function(sequelize, DataTypes) {
   var Table = sequelize.define("Table", {
-    table_name: {
+    tableName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [3]
-      }
+      },
+      field: "table_name"
     },
-    table_availability: {
+    tableAvailability: {
       type: DataTypes.BOOLEAN,
-      defaultValue: true
+      defaultValue: true,
+      field: "table_availability"
     },
-    table_reserved: {
+    tableReserved: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false
+      defaultValue: false,
+      field: "table_reserved"
     },
-    table_reserved_time: {
-      type: DataTypes.INTEGER
+    tableReservedTime: {
+      type: DataTypes.DATE,
+      field: "table_reserved_time"
     },
-    table_people: {
+    tablePeople: {
       type: DataTypes.INTEGER,
-      defaultValue: 4
+      defaultValue: 4,
+      field: "table_people"
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -31,10 +36,12 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.literal("NOW()")
     }
   });
-  Table.assicaite = function(models) {
-    Table.hasMany(models.Reservation, {
-      onUpdate: "CASCADE",
-      onDelete: "CASCADE"
+
+  Table.associate = function(models) {
+    Table.belongsTo(models.Customer, {
+      foreignKey: {
+        allowNull: false
+      }
     });
   };
 

@@ -25,6 +25,13 @@ body {
   line-height: 1.5;
 }
 
+.cover {
+  width: 100vh;
+  height: 100vh;
+  color: #311204;
+  z-index: 2;
+}
+
 .list-style-none{
   list-style: none;
 }

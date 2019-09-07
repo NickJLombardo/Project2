@@ -1,9 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  let CustomerReservation = sequelize.define("CustomerReservation", {
-    status: {
-      type: DataTypes.STRING,
-      defaultValue: "started"
-    },
+  var TableMenu = sequelize.define("TableMenu", {
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: sequelize.literal("NOW()")
@@ -11,8 +7,13 @@ module.exports = function(sequelize, DataTypes) {
     updatedAt: {
       type: DataTypes.DATE,
       defaultValue: sequelize.literal("NOW()")
+    },
+    menuQuantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      field: "menu_quantity"
     }
   });
 
-  return CustomerReservation;
+  return TableMenu;
 };

@@ -39,22 +39,14 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.Customer.belongsToMany(db.Reservation, {
-  through: db.CustomerReservation,
-  onDelete: "cascade"
-});
-db.Reservation.belongsToMany(db.Customer, {
-  through: db.CustomerReservation,
-  onDelete: "cascade"
-});
-db.Table.belongsToMany(db.Customer, {
-  through: "CustomerTable",
-  onDelete: "cascade"
-});
-db.Customer.belongsToMany(db.Table, {
-  through: "CustomerTable",
-  onDelete: "cascade"
-});
+// db.Table.belongsToMany(db.Customer, {
+//   through: "CustomerTable",
+//   onDelete: "cascade"
+// });
+// db.Customer.belongsToMany(db.Table, {
+//   through: "CustomerTable",
+//   onDelete: "cascade"
+// });
 db.Table.belongsToMany(db.Menu, { through: "TableMenu", onDelete: "cascade" });
 db.Menu.belongsToMany(db.Table, { through: "TableMenu", onDelete: "cascade" });
 
