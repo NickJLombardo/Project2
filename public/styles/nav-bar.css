@@ -46,6 +46,7 @@ body {
   background-color: #fadfd0;
   opacity: .6;
   transition: opacity .5s ease-in;
+  z-index: 1;
 }
 
 .nav-bar:hover {
