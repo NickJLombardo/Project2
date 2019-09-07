@@ -1,14 +1,17 @@
 {
   "development": {
     "username": "root",
-    "password": "finGerginger215$",
+
+    "password": "root",
     "database": "munchiesdb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "finGerginger215$",
+
+
+    "password": "root",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
