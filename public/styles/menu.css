@@ -1,15 +1,11 @@
 /* Style the video: 100% width and height to cover the entire window */
 #myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
   min-width: 100%;
   min-height: 100%;
 }
 
 /* Add some content at the bottom of the video/page */
 .content {
-  position: fixed;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
@@ -17,7 +13,7 @@
   padding: 20px;
 }
 
-.menu-container2 {
+.menu-container {
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -25,4 +21,4 @@
   align-items: center;
   text-align: center;
   color: #fff;
-
+}

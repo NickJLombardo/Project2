@@ -7,7 +7,6 @@
   background-size: cover;
 }
 
-
 .about-container {
   text-align: center;
   padding: 20px 200px;
@@ -19,30 +18,61 @@
 }
 /* ALC SECTION ON THE MAIN PAGE */
 .alc-container {
-  height: 60vh;
-  width: 100vw;
-  background-color: rgb(0, 0, 0);
+  display: flex;
+  background-color: #FABC60;
 }
 .beer-container {
-  float: left;
+  width: 45%;
 }
 .alc-img {
-  width: 700px;
-  height: 412px;
+  width: 100%;
+  height: 100%;
 }
 .alc-summary {
+  width: 55%;
   text-align: center;
-  padding-top: 10%;
-  /* float: right; */
-  background-color: #FABC60;
-  height: 412px;
+  align-self: center;
 }
 
 /* MENU SECTION */
 #menu-title {
   color: white;
 }
+.drink-menu,
+.food-category {
+  list-style: none;
+  padding: 15px;
+}
 
+.drinks {
+  background-color: rgba(255, 153, 0, 0.952);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+.food-category-list {
+  display: flex;
+}
+.food-category-link {
+  background-color: rgba(255, 153, 0, 0.952);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+.drinks:hover,
+.food-category-link:hover {
+  box-shadow: 0 12px 16px 0 rgba(255, 252, 252, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
+}
 .menu-container {
   height: 300px;
   background-image: url(../images/menu-background.jpg);
@@ -56,108 +86,43 @@
   color: #fff;
 }
 
-.drink-menu,
-.food-category {
-  list-style: none;
-  float: left;
-  padding: 15px;
-}
-
-.drinks {
-  background-color: rgba(255, 153, 0, 0.952);
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  margin-left: 240%;
-  cursor: pointer;
- 
-}
-
-.food-category-link {
-  /* text-decoration: none;
-  color: #fff; */
-  background-color: rgba(233, 181, 102, 0.952);
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.drinks:hover,
-.food-category-link:hover {
-  box-shadow: 0 12px 16px 0 rgba(255, 252, 252, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
-
-}
-/* SPECIAL EVENTS SECTION */
 .special-events-container {
-  /* height: 60vh; */
-  height: 412px;
-
-  width: 100vw;
-  background-color: rgb(128, 125, 125);
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: #FABC60;
 }
 
 .tailgate {
-  /* width: 700px;
-  height: 412px; */
-  float: right;
+  width: 45%;
 }
 
 .fans-img {
-  width: 700px;
-  height: 412px;
-  /* float: left; */
+  width: 100%;
+  height: 100%;
 }
 
 .special-events-summary {
-  float: left;
+  width: 55%;
+  align-self: center;
   text-align: center;
-  padding-top: 10%;
-  margin-left: 1%;
-  background-color: #caa256;
-  color: white;
-  height: 412px;
 }
 
-/* CATERING SECTION */
+/* Catering Section */
 .catering-container {
-  /* height: 60vh; */
-  height: 412px;
-
-  width: 100vw;
-  background-color: rgb(221, 217, 217);
-}
-.platter-container {
-  float: right;
-}
-#explodeVideo {
-  /* position: fixed; */
-  /* right: 0;
-  bottom: 0; */
-  width: 732px;
-  height: 100%;
-  /* min-width: 100%;
-  min-height: 100%; */
-}
-/* .platter-img {
-  width: 700px;
-  height: 412px;
-} */
-.catering-summary {
-  /* float: right; */
-  text-align: center;
-  padding-top: 10%;
+  display: flex;
   background-color: #107595;
-  color: white;
-  height: 412px;
+}
+.explodeVideo-container {
+  width: 45%;
+  background-color: #0f0f0f;
+}
+.explodeVideo {
+  width: 100%;
+  height: 100%;
+}
+.catering-summary {
+  width: 55%;
+  text-align: center;
+  align-self: center;
+  color: #fff;
 }
