@@ -1,0 +1,110 @@
+.events_mainPic {
+    height: 70vh;
+  width: 100vw;
+  background-position: center;
+  background-image: url(../images/special-events-headerpic.jpeg);
+  background-attachment: fixed;
+  background-size: cover;
+}
+/* LARGE SCREENS................................. */
+.philly-special-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .eagles-container {
+     order: 1;
+  }
+  .flyEagles-img {
+    width: 700px;
+    height: 412px;
+  }
+  .special-summary {
+      order: 2;
+      width: 739px;
+    background-color: rgba(237, 243, 215, 0.89);
+    height: 412px;
+    text-align: center;
+    padding: 100px;
+  }
+
+  #phl {
+    color: rgb(5, 85, 5);
+}
+
+
+  /* MEDIUM SCREENS.............................. */
+  @media all and (max-width: 1200px) {
+    .philly-special-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      .eagles-container {
+         order: 1;
+      }
+      .flyEagles-img {
+        width: 100%;
+        height: 500px;
+      }
+      .special-summary {
+          order: 2;
+          width: 100%;
+          background-color: rgba(237, 243, 215, 0.89);
+          height: 412px;
+        text-align: center;
+        padding: 100px;
+
+      }
+      #phl {
+        color: rgb(5, 85, 5);
+    }
+  }
+
+/* SMALL SCREENS............................ */
+  @media all and (max-width: 600px) {
+    .philly-special-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      .eagles-container {
+         order: 1;
+      }
+      .flyEagles-img {
+        width: 100%;
+        height: 412px;
+      }
+      .special-summary {
+          order: 2;
+          width: 100%;
+          background-color: rgba(237, 243, 215, 0.89);
+          height: 412px;
+        text-align: center;
+        padding: 100px;
+
+      }
+      #phl {
+        color: rgb(5, 85, 5);
+    }
+  }
+
+  .happyhour-container {
+    height: 400px;
+    background-image: url(../images/happyhour.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+  }
+
+ 
+  
+  #happyhour-title {
+    color: white;
+  }
