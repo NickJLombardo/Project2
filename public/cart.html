@@ -48,15 +48,14 @@
         <div class="cart-logo">
           <h1>My Cart</h1>
         </div>
-        <ul class="cart-nav-items">
-          <li class="list-style-none">
-            <a class="cart-nav-link text-deco-none" href="#">EMPTY CART</a>
-          </li>
-        </ul>
+        <div class="cart-nav-items">
+          <button class="empty-cart-btn">EMPTY CART</button>
+        </div>
       </div>
       <table class="cart-items-table">
         <thead>
           <tr class="cart-item-table-head-row">
+            <th class="cart-item-table-head cart-item-table-delete"></th>
             <th class="cart-item-table-head cart-item-table-no">No.</th>
             <th class="cart-item-table-head cart-item-table-item-name">
               Item Name
@@ -70,71 +69,7 @@
             <th class="cart-item-table-head cart-item-table-total">Total</th>
           </tr>
         </thead>
-        <tbody class="cart-item-table-body">
-          <tr class="cart-item-table-body-row">
-            <tr class="cart-item-table-body-row">
-            <td class="cart-item-table-data"></td>
-            <td class="cart-item-table-data">No Items</td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-item-unit-price"
-            >
-              -
-            </td>
-            <td class="cart-item-table-data">
-              <div class="quantity">
-                <span class="operator decreaseByOne"> - </span>
-                <input type="number" value="0" class="current-item-quantity" />
-                <span class="operator increaseByOne"> + </span>
-              </div>
-            </td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-item-price"
-            >0
-            </td>
-          </tr>`
-          </tr>
-          <tr class="cart-item-table-body-row taxes-row">
-            <td></td>
-            <td>Taxes (Based on the current location)</td>
-            <td></td>
-            <td></td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-taxes"
-            >
-              0
-            </td>
-          </tr>
-          <tr class="cart-item-table-body-row">
-            <td></td>
-            <td>Total</td>
-            <td></td>
-            <td></td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-total"
-            >
-              0
-            </td>
-          </tr>
-
-          <tr class="cart-item-table-body-row">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="cart-item-table-data">
-              <a class="check-out-btn">Order</a>
-            </td>
-          </tr>
-          <tr class="cart-item-table-body-row">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="cart-item-table-data">
-              <a class="check-out-btn">Check Out</a>
-            </td>
-          </tr>
-        </tbody>
+        <tbody class="cart-item-table-body"></tbody>
       </table>
     </div>
     <footer class="footer-container">
@@ -198,131 +133,7 @@
         </li>
       </ul>
     </footer>
-    <script>
-      let cartFormat = `<tr class="cart-item-table-body-row">
-            <td class="cart-item-table-data">{%ID%}</td>
-            <td class="cart-item-table-data">{%NAME%}</td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-item-unit-price"
-            >
-              {%PRICE%}
-            </td>
-            <td class="cart-item-table-data">
-              <div class="quantity">
-                <span class="operator decreaseByOne"> - </span>
-                <input type="number" value="{%QUANTITY%}" class="current-item-quantity" />
-                <span class="operator increaseByOne"> + </span>
-              </div>
-            </td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-item-price"
-            >
-            </td>
-          </tr>`;
-      let additionalCartRow = `<tr class="cart-item-table-body-row taxes-row">
-            <td></td>
-            <td>Taxes (Based on the current location)</td>
-            <td></td>
-            <td></td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-taxes"
-            ></td>
-          </tr>
-          <tr class="cart-item-table-body-row">
-            <td></td>
-            <td>Total</td>
-            <td></td>
-            <td></td>
-            <td
-              class="cart-item-table-data cart-item-table-data-number cart-total"
-            ></td>
-          </tr>
-          <tr class="cart-item-table-body-row">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="cart-item-table-data">
-              <a class="check-out-btn">Order</a>
-            </td>
-          </tr>
-          <tr class="cart-item-table-body-row">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="cart-item-table-data">
-              <a class="check-out-btn">Check Out</a>
-            </td>
-          </tr>`;
-      const textReplace = (cartFormat, item, idx) => {
-        const { id, name, price, quantity } = item;
-        let output = cartFormat.replace(`{%ID%}`, idx);
-        output = output.replace("{%NAME%}", name);
-        output = output.replace("{%PRICE%}", price);
-        output = output.replace("{%QUANTITY%}", quantity);
-        return output;
-      };
-      let currentCart = JSON.parse(localStorage.getItem("cartItems"));
-      let innerHtmlText = currentCart
-        .map((item, i) => {
-          return textReplace(cartFormat, item, i + 1);
-        })
-        .join("");
-      document.querySelector(".cart-item-table-body").innerHTML =
-        innerHtmlText + additionalCartRow;
-      const getCurrentSubtotalPrice = () => {
-        let itemPriceArr = [];
-        document.querySelectorAll(".cart-item-price").forEach((cartItem, i) => {
-          cartItem.textContent = (
-            parseFloat(
-              document.querySelectorAll(".cart-item-unit-price")[i].textContent
-            ) *
-            parseFloat(
-              document.querySelectorAll(".current-item-quantity")[i].value
-            )
-          ).toFixed(2);
-          itemPriceArr.push(parseFloat(cartItem.textContent));
-        });
-        let totalBeforeTaxes = itemPriceArr.reduce((x, y) => x + y);
-        let taxes = totalBeforeTaxes * 0.08;
-        document.querySelector(".cart-taxes").textContent = taxes.toFixed(2);
-        document.querySelector(".cart-total").textContent = (
-          totalBeforeTaxes + taxes
-        ).toFixed(2);
-      };
-      getCurrentSubtotalPrice();
-      document.querySelectorAll(".decreaseByOne").forEach((btn, i) =>
-        btn.addEventListener("click", e => {
-          let currentValue = document.querySelectorAll(
-            ".current-item-quantity"
-          )[i].value;
-          if (currentValue !== "1") {
-            document.querySelectorAll(".current-item-quantity")[i].value =
-              parseInt(currentValue) - 1;
-            getCurrentSubtotalPrice();
-          }
-        })
-      );
-      document.querySelectorAll(".increaseByOne").forEach((btn, i) =>
-        btn.addEventListener("click", e => {
-          let currentValue = document.querySelectorAll(
-            ".current-item-quantity"
-          )[i].value;
-          document.querySelectorAll(".current-item-quantity")[i].value =
-            parseInt(currentValue) + 1;
-          getCurrentSubtotalPrice();
-        })
-      );
-      document.querySelectorAll(".current-item-quantity").forEach(qty =>
-        qty.addEventListener("keypress", e => {
-          console.log(e.target.value);
-          if (e.target.value < 6) {
-            e.target.value = 6;
-            e.target.textContent = 6;
-          }
-        })
-      );
-    </script>
+    <script src="./js/cart-template.js"></script>
+    <script src="./js/cart.js"></script>
   </body>
 </html>
