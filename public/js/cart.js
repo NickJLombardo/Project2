@@ -78,7 +78,7 @@ const onClickFunction = currentItemQuantity => {
 
   document.querySelectorAll(".remove-btn").forEach(removeBtn =>
     removeBtn.addEventListener("click", e => {
-      setTimeout(() => e.target.blur(), 500);
+      setTimeout(() => e.target.blur(), 300);
       currentCart.map((cartItem, i) => {
         if (cartItem.id === e.target.dataset["id"]) {
           currentCart.splice(i, 1);
@@ -90,12 +90,12 @@ const onClickFunction = currentItemQuantity => {
   );
 
   document.querySelector(".order-btn").addEventListener("click", e => {
-    setTimeout(() => e.target.blur(), 500);
+    setTimeout(() => e.target.blur(), 300);
     console.log(e.target);
   });
 
   document.querySelector(".check-out-btn").addEventListener("click", e => {
-    setTimeout(() => e.target.blur(), 500);
+    setTimeout(() => e.target.blur(), 300);
     console.log(e.target);
   });
 };

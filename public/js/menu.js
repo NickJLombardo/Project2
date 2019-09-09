@@ -101,7 +101,7 @@ const filteringMenus = (menus, menuCategoryInput) => {
   }
   document.querySelectorAll(".menu-item-add-to-cart").forEach(menuItem =>
     menuItem.addEventListener("click", e => {
-      setTimeout(() => e.target.blur(), 500);
+      setTimeout(() => e.target.blur(), 300);
       let cartItems = [];
       let id = e.target.dataset["id"];
       let name = e.target.dataset["name"];
@@ -121,7 +121,7 @@ const displayMenu = async () => {
   filteringMenus(menus);
   document.querySelectorAll(".food-category").forEach(categoryBtn =>
     categoryBtn.addEventListener("click", e => {
-      setTimeout(() => e.target.blur(), 500);
+      setTimeout(() => e.target.blur(), 300);
       filteringMenus(menus, e.target.dataset["category"]);
     })
   );
