@@ -15,7 +15,6 @@
 .floor-layout {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-
   padding: 20px;
   position: relative;
   background-image: url('./../images/interlaced.png');
@@ -72,13 +71,6 @@
   box-shadow: 0 0 0 1px #535353;
   transition: all .5s ease-in;
   text-align: center;
-}
-.table-label {
-  transition: all 0.5s ease-in;
-}
-
-.table:hover .table-label {
-  transform: scale(1.3);
 }
 
 .table:hover {
