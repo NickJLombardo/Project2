@@ -44,7 +44,7 @@ module.exports = function(app) {
   });
 
   app.get("/special-events", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cart.html"));
+    res.sendFile(path.join(__dirname, "../public/special-events.html"));
   });
 
   app.get("/manager", function(req, res) {
