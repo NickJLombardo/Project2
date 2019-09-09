@@ -1,24 +1,95 @@
+h2,h3 {
+  text-align: center;
+}
 /* Style the video: 100% width and height to cover the entire window */
 #myVideo {
-  min-width: 100%;
-  min-height: 100%;
+  height: auto;
+  width: 100%;
+  margin-top: -30px;
 }
 
 /* Add some content at the bottom of the video/page */
-.content {
-  bottom: 0;
+.container {
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
-  width: 100%;
-  padding: 20px;
 }
 
 .menu-container {
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
   color: #fff;
+  padding: 20px 0;
+  margin-top: -8px;
+}
+#menu-title {
+  color: white;
+}
+
+.food-category-list {
+  display: flex;
+  justify-content: center;
+}
+.food-category {
+  background-color: rgba(255, 153, 0, 0.952);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 20px;
+}
+.food-category:hover {
+  box-shadow: 0 12px 16px 0 rgba(255, 252, 252, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
+}
+.food-category:hover {
+  box-shadow: 0 12px 16px 0 rgba(255, 252, 252, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
+}
+.menu-items-container {
+  color: rgb(255, 221, 189);
+  background-image: url('./../images/menu-background.jpg');
+  background-blend-mode: multiply;
+  background-size: contain;
+  padding: 20px;
+  background-color: rgba(49, 49, 49, 0.5);
+}
+.menu-item-subcategories-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.menu-item-subcategory-wrapper{
+  padding: 20px;
+  user-select: none;
+}
+.menu-item {
+  padding: 20px;
+}
+.menu-item-details-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.menu-item-description {
+  width: 60%;
+}
+.menu-item-add-to-cart {
+  height: 25px;
+  display: block;
+  text-align: center;
+  color: rgb(255, 221, 189);
+  background-color: #353535;
+  padding: 0 20px;
+  box-shadow: 0 0 0 1px ;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all .5s ease-in;
+}
+
+.menu-item-add-to-cart:hover {
+  box-shadow: 0 0 0 3px rgb(255, 221, 189);
+}
+
+.menu-item-add-to-cart:focus {
+  outline: none;
+  transform: scale(1.3);
 }
