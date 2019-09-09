@@ -1,26 +1,3 @@
-let menuItemContainer = document.querySelector(".menu-items-container");
-let menuItemCategoryHtml = `<div class="menu-item-category-wrapper">
-        <h2>{%CATEGORY%}</h2>
-        <div class="menu-item-subcategories-wrapper">
-          {%SUBCATEGORIES%}
-        </div> 
-      </div>`;
-let menuItemSubategoryHtml = `<div class="menu-item-subcategory-wrapper">
-          <h3>{%SUBCATEGORY%}</h3>
-          <hr />
-          {%MENUITEMS%}
-        </div>`;
-let menuItemHtml = `<div class="menu-item">
-            <div class="menu-item-details-wrapper">
-              <p>{%NAME%}</p>
-              <p>$ {%PRICE%}</p>
-            </div>
-            <div class="menu-item-details-wrapper">
-              <p class="menu-item-description">{%DESCRIPTION%}</p>
-              <button class="menu-item-add-to-cart" data-id="{%ID%}" data-name="{%NAME%}" data-price="{%PRICE%}" data-quantity="{%QUANTITY%}">Add To Cart</button>
-            </div>
-          </div>`;
-
 let menusByCategory = [];
 
 const subCateArr = function(menus, menuCategory) {
@@ -124,7 +101,7 @@ const filteringMenus = (menus, menuCategoryInput) => {
   }
   document.querySelectorAll(".menu-item-add-to-cart").forEach(menuItem =>
     menuItem.addEventListener("click", e => {
-      e.target.blur();
+      setTimeout(() => e.target.blur(), 500);
       let cartItems = [];
       let id = e.target.dataset["id"];
       let name = e.target.dataset["name"];
@@ -144,7 +121,7 @@ const displayMenu = async () => {
   filteringMenus(menus);
   document.querySelectorAll(".food-category").forEach(categoryBtn =>
     categoryBtn.addEventListener("click", e => {
-      e.target.blur();
+      setTimeout(() => e.target.blur(), 500);
       filteringMenus(menus, e.target.dataset["category"]);
     })
   );
