@@ -1,6 +1,7 @@
 .cart-container {
-  margin-top: 120px;
+  margin-top: 119px;
   background-color: #fff;
+  min-height: 700px;
 }
 
 .cart-nav-bar {
@@ -96,9 +97,6 @@ input[type=number] {
   border-bottom: 1px solid #302f2f;
   margin: 20px 0;
 }
-/* .cart-item-table-body-row {
-
-} */
 
 .taxes-row {
   border-top: 1px solid #302f2f;

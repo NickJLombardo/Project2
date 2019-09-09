@@ -70,7 +70,71 @@
             <th class="cart-item-table-head cart-item-table-total">Total</th>
           </tr>
         </thead>
-        <tbody class="cart-item-table-body"></tbody>
+        <tbody class="cart-item-table-body">
+          <tr class="cart-item-table-body-row">
+            <tr class="cart-item-table-body-row">
+            <td class="cart-item-table-data"></td>
+            <td class="cart-item-table-data">No Items</td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-item-unit-price"
+            >
+              -
+            </td>
+            <td class="cart-item-table-data">
+              <div class="quantity">
+                <span class="operator decreaseByOne"> - </span>
+                <input type="number" value="0" class="current-item-quantity" />
+                <span class="operator increaseByOne"> + </span>
+              </div>
+            </td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-item-price"
+            >0
+            </td>
+          </tr>`
+          </tr>
+          <tr class="cart-item-table-body-row taxes-row">
+            <td></td>
+            <td>Taxes (Based on the current location)</td>
+            <td></td>
+            <td></td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-taxes"
+            >
+              0
+            </td>
+          </tr>
+          <tr class="cart-item-table-body-row">
+            <td></td>
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td
+              class="cart-item-table-data cart-item-table-data-number cart-total"
+            >
+              0
+            </td>
+          </tr>
+
+          <tr class="cart-item-table-body-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="cart-item-table-data">
+              <a class="check-out-btn">Order</a>
+            </td>
+          </tr>
+          <tr class="cart-item-table-body-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="cart-item-table-data">
+              <a class="check-out-btn">Check Out</a>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
     <footer class="footer-container">
@@ -200,11 +264,13 @@
         return output;
       };
       let currentCart = JSON.parse(localStorage.getItem("cartItems"));
-      let innerHtmlText = currentCart.map((item, i) => {
-        return textReplace(cartFormat, item, i + 1);
-      });
+      let innerHtmlText = currentCart
+        .map((item, i) => {
+          return textReplace(cartFormat, item, i + 1);
+        })
+        .join("");
       document.querySelector(".cart-item-table-body").innerHTML =
-        innerHtmlText.join("") + additionalCartRow;
+        innerHtmlText + additionalCartRow;
       const getCurrentSubtotalPrice = () => {
         let itemPriceArr = [];
         document.querySelectorAll(".cart-item-price").forEach((cartItem, i) => {

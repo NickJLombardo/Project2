@@ -1,7 +1,9 @@
-let menuItemContainer = document.querySelector(".menu-items-container");
-let menuItemCategoryHtml = `<div class="menu-item-category-wrapper">
-        <h2>{%CATEGORY%}</h2>
-        <div class="menu-item-subcategories-wrapper">
+let menuItemContainer = document.querySelector(
+  ".catering-menu-items-container"
+);
+let menuItemCategoryHtml = `<div class="catering-menu-item-category-wrapper">
+        <h2 class="catering-menu-title">{%CATEGORY%}</h2>
+        <div class="menu-items-wrapper">
           {%SUBCATEGORIES%}
         </div> 
       </div>`;
@@ -10,18 +12,23 @@ let menuItemSubategoryHtml = `<div class="menu-item-subcategory-wrapper">
           <hr />
           {%MENUITEMS%}
         </div>`;
-let menuItemHtml = `<div class="menu-item">
-            <div class="menu-item-details-wrapper">
+let menuItemHtml = `<div class="menu-item" data-id="{%ID%}" data-name="{%NAME%}" data-price="{%PRICE%}" data-min-order="{%MINORDER%}">
+            <div class="menu-item-title-price-wrapper">
               <p>{%NAME%}</p>
               <p>$ {%PRICE%}</p>
             </div>
+            <p class="menu-item-description">{%DESCRIPTION%}</p>
             <div class="menu-item-details-wrapper">
-              <p class="menu-item-description">{%DESCRIPTION%}</p>
-              <button class="menu-item-add-to-cart" data-id="{%ID%}" data-name="{%NAME%}" data-price="{%PRICE%}" data-quantity="{%QUANTITY%}">Add To Cart</button>
+              <p>Minimun Order - {%MINORDER%}</p>           
             </div>
           </div>`;
-
 let menusByCategory = [];
+
+const getId = (node, className) => {
+  for (; node !== document; node = node.parentNode) {
+    if (node.className === className) return node.dataset.id;
+  }
+};
 
 const subCateArr = function(menus, menuCategory) {
   let subCategory = new Array();
@@ -39,14 +46,21 @@ const subCateArr = function(menus, menuCategory) {
             id: item["id"],
             menuName: item["menuName"],
             menuDescription: item["menuDescription"],
-            menuPrice: item["menuPrice"]
+            menuPrice: item["menuPrice"],
+            menuCateringMinOrder: item["menuCateringMinOrder"]
           }));
     });
   return subCategory;
 };
 
-const textReplace = (cartFormat, item, quantity) => {
-  const { id, menuName, menuPrice, menuDescription } = item;
+const textReplace = (cartFormat, item) => {
+  const {
+    id,
+    menuName,
+    menuPrice,
+    menuDescription,
+    menuCateringMinOrder
+  } = item;
   let output = cartFormat.replace(/{%ID%}/g, id);
   output = output.replace(/{%NAME%}/g, menuName);
   output = output.replace(/{%PRICE%}/g, menuPrice.toFixed(2));
@@ -54,7 +68,7 @@ const textReplace = (cartFormat, item, quantity) => {
     /{%DESCRIPTION%}/g,
     menuDescription === null ? "" : menuDescription
   );
-  output = output.replace(/{%QUANTITY%}/g, quantity);
+  output = output.replace(/{%MINORDER%}/g, menuCateringMinOrder);
   return output;
 };
 
@@ -64,7 +78,7 @@ const creatingInnerHtml = menusBySubCategory => {
     let menuItems = menusBySubCategory[subcategory];
     let menuItemHtmlText = menuItems
       .map(menuItem => {
-        return textReplace(menuItemHtml, menuItem, 1);
+        return textReplace(menuItemHtml, menuItem);
       })
       .join("");
     let menuItemSubategoryHtmlText = menuItemSubategoryHtml.replace(
@@ -136,6 +150,42 @@ const filteringMenus = (menus, menuCategoryInput) => {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
     })
   );
+  const currentMenuItem = document.querySelector(".current-menu-item");
+  const currentItem = document.querySelector(".current-item");
+  const menuItem = document.querySelectorAll(".menu-item");
+  const currentItemQuantity = document.querySelector(".current-item-quantity");
+  menuItem.forEach(menuItem =>
+    menuItem.addEventListener("click", e => {
+      let className = "menu-item";
+      let node = e.target;
+      let id = getId(node, className);
+      currentItem.style.display = "flex";
+      currentMenuItem.setAttribute("id", id);
+      console.log(1);
+    })
+  );
+  document.querySelector(".add-to-cart-btn").addEventListener("click", e => {
+    let id = currentMenuItem.id;
+    let quantity = parseInt(currentItemQuantity.value);
+    localStorage.setItem("currentCart", JSON.stringify([{ id, quantity }]));
+    console.log(JSON.parse(localStorage.getItem("currentCart"))[0].id);
+  });
+  document.querySelector(".decreaseByOne").addEventListener("click", e => {
+    let currentValue = document.querySelector(".current-item-quantity").value;
+    if (currentValue !== "0")
+      document.querySelector(".current-item-quantity").value =
+        parseInt(currentValue) - 1;
+  });
+  document.querySelector(".increaseByOne").addEventListener("click", e => {
+    let currentValue = document.querySelector(".current-item-quantity").value;
+    document.querySelector(".current-item-quantity").value =
+      parseInt(currentValue) + 1;
+  });
+  window.addEventListener("click", function(e) {
+    if (!document.querySelector(".current-menu-item").contains(e.target)) {
+      currentItem.style.display = "none";
+    }
+  });
 };
 
 const displayMenu = async () => {

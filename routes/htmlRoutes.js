@@ -24,42 +24,6 @@ module.exports = function(app) {
   });
 
   app.get("/menu", function(req, res) {
-    const subCateArr = function(menus, menuCategory) {
-      let subCategory = new Array();
-      menus
-        .filter(menu1 => menu1.menuCategory === menuCategory)
-        .map(menu => {
-          if (!subCategory.includes(menu.menuSubcategory))
-            subCategory[menu.menuSubcategory] = menus
-              .filter(
-                item =>
-                  item.menuSubcategory === menu.menuSubcategory &&
-                  item.menuCategory === menu.menuCategory
-              )
-              .map(item => ({
-                menuName: item["menuName"],
-                menuDescription: item["menuDescription"],
-                menuPrice: item["menuPrice"]
-              }));
-        });
-
-      return subCategory;
-    };
-
-    const displayMenu = async () => {
-      const res = await fetch("./api/menus/");
-      const menus = await res.json();
-      let menusByCategory = [];
-      menus.map(menu => {
-        if (!Object.keys(menusByCategory).includes(menu.menuCategory))
-          menusByCategory[menu.menuCategory] = new Array(
-            subCateArr(menus, menu.menuCategory)
-          );
-      });
-      return menusByCateory;
-    };
-
-    displayMenu();
     res.sendFile(path.join(__dirname, "../public/menu.html"));
   });
 
@@ -81,6 +45,14 @@ module.exports = function(app) {
 
   app.get("/special-events", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/cart.html"));
+  });
+
+  app.get("/manager", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/manager.html"));
+  });
+
+  app.get("/chef", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/chef.html"));
   });
 
   app.get("/contact", function(req, res) {
