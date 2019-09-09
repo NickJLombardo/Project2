@@ -28,6 +28,12 @@
     padding: 100px;
   }
 
+  .about-container {
+  text-align: center;
+  padding: 20px 200px;
+  background-color: white;
+}
+
   #phl {
     color: rgb(5, 85, 5);
 }
