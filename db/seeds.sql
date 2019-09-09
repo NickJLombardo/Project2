@@ -76,3 +76,11 @@ INSERT INTO Tables (table_name, table_people) VALUES ('211', 4);
 INSERT INTO Customers (customer_name, customer_username, customer_password, customer_birthday, customer_email, customer_phone) VALUES ('Min', 'min', '123', '01/01/1111', 'min@gmail.com', '111-111-1111');
 INSERT INTO Customers (customer_name, customer_username, customer_password, customer_birthday, customer_email, customer_phone) VALUES ('Nicholas', 'nicholas', '123', '01/01/1111', 'nicholas@gmail.com', '111-111-1111');
 INSERT INTO Customers (customer_name, customer_username, customer_password, customer_birthday, customer_email, customer_phone) VALUES ('Rebeacca', 'rebeacca', '123', '01/01/1111', 'rebeacca@gmail.com', '111-111-1111');
+
+INSERT INTO Information (information_date, information_opened) VALUES ('MON', false);
+INSERT INTO Information (information_date, information_opened, information_open_hour, information_close_hour) VALUES ('TUE', true, '9:00:00', '22:00:00');
+INSERT INTO Information (information_date, information_opened, information_open_hour, information_close_hour) VALUES ('WED', true, '9:00:00', '22:00:00');
+INSERT INTO Information (information_date, information_opened, information_open_hour, information_close_hour) VALUES ('THUR', true, '9:00:00', '22:00:00');
+INSERT INTO Information (information_date, information_opened, information_open_hour, information_close_hour) VALUES ('FRI', true, '9:00:00', '24:00:00');
+INSERT INTO Information (information_date, information_opened, information_open_hour, information_close_hour) VALUES ('SAT', true, '10:00:00', '24:00:00');
+INSERT INTO Information (information_date, information_opened, information_open_hour, information_close_hour) VALUES ('SUN', true, '10:00:00', '21:00:00');

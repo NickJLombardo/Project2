@@ -82,7 +82,7 @@ h2,h3 {
   box-shadow: 0 0 0 1px ;
   border-radius: 3px;
   cursor: pointer;
-  transition: all .5s ease-in;
+  transition: all .3s ease-in;
 }
 
 .menu-item-add-to-cart:hover {

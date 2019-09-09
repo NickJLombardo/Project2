@@ -116,6 +116,10 @@ module.exports = function(app) {
     makeOrder(req.body, res);
   });
 
+  app.get("/api/information", (req, res) => {
+    db.Information.findAll({}).then(data => res.json(data));
+  });
+
   app.get("/api/reserve", function(req, res) {
     res.json(reservationData);
   });
