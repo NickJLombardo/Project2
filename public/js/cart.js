@@ -5,7 +5,7 @@ const textReplace = (cartFormat, item, idx, x) => {
   output = output.replace("{%NAME%}", name);
   output = output.replace("{%PRICE%}", price.toFixed(2));
   output = output.replace("{%QUANTITY%}", quantity);
-  output = output.replace("{%DATAID%}", id);
+  output = output.replace(/{%DATAID%}/g, id);
   output = output.replace("{%X%}", x);
   return output;
 };
@@ -64,6 +64,7 @@ const onClickFunction = currentItemQuantity => {
       let currentId = currentItemQuantity[i].parentElement.dataset["id"];
       currentItemQuantity[i].value = parseInt(currentValue) + 1;
       getCurrentSubtotalPrice(currentItemQuantity);
+      console.log(currentId);
       updateCartItems(currentId, parseInt(currentItemQuantity[i].value));
     })
   );
@@ -78,7 +79,7 @@ const onClickFunction = currentItemQuantity => {
 
   document.querySelectorAll(".remove-btn").forEach(removeBtn =>
     removeBtn.addEventListener("click", e => {
-      setTimeout(() => e.target.blur(), 300);
+      setTimeout(() => e.target.blur(), 500);
       currentCart.map((cartItem, i) => {
         if (cartItem.id === e.target.dataset["id"]) {
           currentCart.splice(i, 1);
@@ -90,12 +91,12 @@ const onClickFunction = currentItemQuantity => {
   );
 
   document.querySelector(".order-btn").addEventListener("click", e => {
-    setTimeout(() => e.target.blur(), 300);
+    setTimeout(() => e.target.blur(), 500);
     console.log(e.target);
   });
 
   document.querySelector(".check-out-btn").addEventListener("click", e => {
-    setTimeout(() => e.target.blur(), 300);
+    setTimeout(() => e.target.blur(), 500);
     console.log(e.target);
   });
 };

@@ -16,18 +16,22 @@
 #critics {
   width: 100%
 }
+
 /* ALC SECTION ON THE MAIN PAGE */
 .alc-container {
   display: flex;
   background-color: #FABC60;
 }
+
 .beer-container {
   width: 45%;
 }
+
 .alc-img {
   width: 100%;
   height: 100%;
 }
+
 .alc-summary {
   width: 55%;
   text-align: center;
