@@ -37,3 +37,16 @@ body {
 .category:nth-child(odd) {
   background-color: #f4fdea;
 }
+
+.input-text {}
+
+.data-input {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  user-select: none;
+}
+
+
+

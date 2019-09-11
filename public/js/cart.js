@@ -9,7 +9,9 @@ const textReplace = (cartFormat, item, idx, x) => {
   output = output.replace("{%X%}", x);
   return output;
 };
+
 let currentCart = JSON.parse(localStorage.getItem("cartItems"));
+if (!currentCart) currentCart = new Array();
 
 const displayCart = currentCart => {
   let innerHtmlText = currentCart
@@ -46,6 +48,12 @@ const getCurrentSubtotalPrice = currentItemQuantity => {
   ).toFixed(2);
 };
 
+const noItemDisplay = () => {
+  let item = { id: "", name: "No Item", price: 0, quantity: 0 };
+  document.querySelector(".cart-item-table-body").innerHTML =
+    textReplace(cartFormat, item, "", "") + additionalCartRow;
+};
+
 const onClickFunction = currentItemQuantity => {
   document.querySelectorAll(".decreaseByOne").forEach((btn, i) =>
     btn.addEventListener("click", e => {
@@ -64,7 +72,6 @@ const onClickFunction = currentItemQuantity => {
       let currentId = currentItemQuantity[i].parentElement.dataset["id"];
       currentItemQuantity[i].value = parseInt(currentValue) + 1;
       getCurrentSubtotalPrice(currentItemQuantity);
-      console.log(currentId);
       updateCartItems(currentId, parseInt(currentItemQuantity[i].value));
     })
   );
@@ -76,7 +83,6 @@ const onClickFunction = currentItemQuantity => {
       }
     })
   );
-
   document.querySelectorAll(".remove-btn").forEach(removeBtn =>
     removeBtn.addEventListener("click", e => {
       setTimeout(() => e.target.blur(), 500);
@@ -89,12 +95,10 @@ const onClickFunction = currentItemQuantity => {
       localStorage.setItem("cartItems", JSON.stringify(currentCart));
     })
   );
-
   document.querySelector(".order-btn").addEventListener("click", e => {
     setTimeout(() => e.target.blur(), 500);
     console.log(e.target);
   });
-
   document.querySelector(".check-out-btn").addEventListener("click", e => {
     setTimeout(() => e.target.blur(), 500);
     console.log(e.target);
@@ -103,9 +107,7 @@ const onClickFunction = currentItemQuantity => {
 
 const cartdisplay = currentCart => {
   if (currentCart.length === 0) {
-    let item = { id: "", name: "No Item", price: 0, quantity: 0 };
-    document.querySelector(".cart-item-table-body").innerHTML =
-      textReplace(cartFormat, item, "", "") + additionalCartRow;
+    noItemDisplay();
   } else {
     displayCart(currentCart);
     const currentItemQuantity = document.querySelectorAll(
@@ -117,3 +119,7 @@ const cartdisplay = currentCart => {
 };
 
 cartdisplay(currentCart);
+document.querySelector(".empty-cart-btn").addEventListener("click", e => {
+  noItemDisplay();
+  localStorage.setItem("cartItems", JSON.stringify([]));
+});

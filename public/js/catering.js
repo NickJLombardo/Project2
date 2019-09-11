@@ -1,4 +1,4 @@
-let menuItemContainer = document.querySelector(
+const menuItemContainer = document.querySelector(
   ".catering-menu-items-container"
 );
 let menuItemCategoryHtml = `<div class="catering-menu-item-category-wrapper">
@@ -43,11 +43,11 @@ const subCateArr = function(menus, menuCategory) {
               item.menuCategory === menu.menuCategory
           )
           .map(item => ({
-            id: item["id"],
-            menuName: item["menuName"],
-            menuDescription: item["menuDescription"],
-            menuPrice: item["menuPrice"],
-            menuCateringMinOrder: item["menuCateringMinOrder"]
+            id: item.id,
+            menuName: item.menuName,
+            menuDescription: item.menuDescription,
+            menuPrice: item.menuPrice,
+            menuCateringMinOrder: item.menuCateringMinOrder
           }));
     });
   return subCategory;
@@ -140,10 +140,10 @@ const filteringMenus = (menus, menuCategoryInput) => {
     menuItem.addEventListener("click", e => {
       e.target.blur();
       let cartItems = [];
-      let id = e.target.dataset["id"];
-      let name = e.target.dataset["name"];
-      let price = parseFloat(e.target.dataset["price"]);
-      let quantity = parseInt(e.target.dataset["quantity"]);
+      let id = e.target.dataset.id;
+      let name = e.target.dataset.name;
+      let price = parseFloat(e.target.dataset.price);
+      let quantity = parseInt(e.target.dataset.quantity);
       if (localStorage.getItem("cartItems"))
         cartItems = JSON.parse(localStorage.getItem("cartItems"));
       cartItems.push(Object.assign({}, { id, name, price, quantity }));
@@ -195,7 +195,7 @@ const displayMenu = async () => {
   document.querySelectorAll(".food-category").forEach(categoryBtn =>
     categoryBtn.addEventListener("click", e => {
       e.target.blur();
-      filteringMenus(menus, e.target.dataset["category"]);
+      filteringMenus(menus, e.target.dataset.category);
     })
   );
 };
