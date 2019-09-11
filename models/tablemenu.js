@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var TableMenu = sequelize.define("TableMenu", {
+  const TableMenu = sequelize.define("TableMenu", {
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: sequelize.literal("NOW()")

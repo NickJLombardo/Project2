@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Table = sequelize.define("Table", {
+  const Table = sequelize.define("Table", {
     tableName: {
       type: DataTypes.STRING,
       allowNull: false,

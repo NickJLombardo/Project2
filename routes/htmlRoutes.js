@@ -1,6 +1,5 @@
 const db = require("../models");
 const path = require("path");
-const fs = require("fs");
 
 module.exports = function(app) {
   app.get("/", function(req, res) {

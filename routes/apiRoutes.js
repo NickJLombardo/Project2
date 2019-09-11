@@ -1,5 +1,5 @@
-var db = require("../models");
-var reservationData = require("../public/data/reservation.js");
+const db = require("../models");
+const reservationData = require("../public/data/reservation.js");
 
 const makeReservation = (reservation, res) => {
   const {
@@ -84,7 +84,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/reservations", function(req, res) {
-    var query = {};
+    let query = {};
     if (req.query.id) {
       query.id = req.query.id;
     }
