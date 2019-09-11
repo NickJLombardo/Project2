@@ -39,12 +39,13 @@ body {
 .text-deco-none {
   text-decoration: none;
 }
+
 .nav-bar {
   position: absolute;
   top: 0;
   width: 100%;
   background-color: #fadfd0;
-  opacity: .6;
+  opacity: .7;
   transition: opacity .5s ease-in;
   z-index: 1;
 }
