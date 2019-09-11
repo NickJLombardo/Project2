@@ -95,3 +95,26 @@
 .credit-link:hover {
   color: #ffc7af;
 }
+
+#hours {
+  text-align: center;
+}
+
+@media all and (max-width: 950px) {
+  .address-wrapper {
+    flex-direction: column;
+  }
+  .hoursOfOperation {
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+    padding-top: 18px;
+  }
+  .sign-up-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  .sign-up-btn {
+    margin: 0 auto;
+  }
+}
