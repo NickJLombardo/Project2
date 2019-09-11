@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Reservation = sequelize.define("Reservation", {
+  const Reservation = sequelize.define("Reservation", {
     reservationName: {
       type: DataTypes.STRING,
       allowNull: false,

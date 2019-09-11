@@ -1,17 +1,17 @@
 "use strict";
 
-var fs = require("fs");
-var path = require("path");
-var Sequelize = require("sequelize");
-var basename = path.basename(module.filename);
-var env = process.env.NODE_ENV || "development";
-var config = require(__dirname + "/../config/config.json")[env];
-var db = {};
+const fs = require("fs");
+const path = require("path");
+const Sequelize = require("sequelize");
+let basename = path.basename(module.filename);
+let env = process.env.NODE_ENV || "development";
+let config = require(__dirname + "/../config/config.json")[env];
+let db = {};
 
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]);
+if (config.use_env_letiable) {
+  let sequelize = new Sequelize(process.env[config.use_env_letiable]);
 } else {
-  var sequelize = new Sequelize(
+  let sequelize = new Sequelize(
     config.database,
     config.username,
     config.password,
@@ -26,7 +26,7 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach(function(file) {
-    var model = sequelize.import(path.join(__dirname, file));
+    let model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
   });
 
@@ -39,14 +39,6 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-// db.Table.belongsToMany(db.Customer, {
-//   through: "CustomerTable",
-//   onDelete: "cascade"
-// });
-// db.Customer.belongsToMany(db.Table, {
-//   through: "CustomerTable",
-//   onDelete: "cascade"
-// });
 db.Table.belongsToMany(db.Menu, { through: "TableMenu", onDelete: "cascade" });
 db.Menu.belongsToMany(db.Table, { through: "TableMenu", onDelete: "cascade" });
 
