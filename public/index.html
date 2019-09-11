@@ -1,213 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./styles/nav-bar.css" />
-    <link rel="stylesheet" href="./styles/index.css" />
-    <link rel="stylesheet" href="./styles/footer.css" />
-    <script src="https://kit.fontawesome.com/e99a58f39e.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Special+Elite&display=swap"
-      rel="stylesheet"
-    />
-    <title>Munchies</title>
-  </head>
-  <body>
-    <nav class="nav-bar">
-      <div class="logo">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="./styles/nav-bar.css" />
+  <link rel="stylesheet" href="./styles/index.css" />
+  <link rel="stylesheet" href="./styles/footer.css" />
+  <script src="https://kit.fontawesome.com/e99a58f39e.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Special+Elite&display=swap" rel="stylesheet" />
+  <title>Munchies</title>
+</head>
+
+<body>
+  <nav class="nav-bar">
+    <div class="logo">
+      <h1>MUNCHIES</h1>
+    </div>
+    <ul class="nav-items">
+      <li class="nav-item">
+        <a class="nav-link" href="/">ABOUT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./menu">MENU</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/special-events">SPECIAL EVENTS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/reserve">RESERVATION</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/catering">CATERING</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">CONTACT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/cart">CART</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container">
+    <div class="fav-food-img-container"></div>
+    <div class="about-container">
+      <h1>GOT THE MUNCHIES?</h1>
+      <p>
+        Voted as the
+        <b>The Best New Restaurant of 2019 by Philadelphia Magazine</b>!
+        Munchies is the best place for all those after work happy hours, has the best food for those 2 am
+        cravings, or - let's be honest - is an all-around PHILLY FAVORITE for every other time of the day. Located
+        in the heart of Philadelphia, Munchies is in the prime location to get
+        your evening going.
+      </p>
+      <br>
+      <a href="./reserve.html" class="reservePage-button">
+        <p>Make a Reservation</p>
+      </a>
+      <br><br>
+      <p>
+        Created by Penn LPS Coding Bootcamp survivors Nicholas, Rebeacca, and
+        Min. Inspired by the long, hungry Monday and Wednesday nights after
+        rough days at our 9-5's these survivors endured. They have brought to
+        you the ultimate menu to produce the biggest food coma you ever
+        experienced.
+      </p>
+      <br />
+      <hr />
+      <br />
+      <h5><i>5 Star Ratings From:</i></h5>
+      <br />
+      <img id="critics" src="images/critics.png" />
+    </div>
+
+    <div class="special-events-container">
+      <div class="tailgate">
+        <img class="fans-img" src="images/Super_bowl_bar.jpg" />
+      </div>
+      <div class="special-events-summary">
+        <h2 id="mainPageH2">Come Hang With Us!</h2>
+        <p>
+          It's officially FOOTBALL SEASON! Every NFL Sunday enjoy 1 free beer
+          or cocktail on us!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-container">
+    <h1 id="menu-title">Menu</h1>
+    <ul class="food-category-list">
+      <li class="food-category">
+        <a class="food-category-link" href="./breakfast.html" target="_blank">Breakfast</a>
+      </li>
+      <li class="food-category">
+        <a class="food-category-link" href="./lunch.html" target="_blank">Lunch</a>
+      </li>
+      <li class="food-category">
+        <a class="food-category-link" href="./dinner.html" target="_blank">Dinner</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="catering-container">
+    <div class="catering-summary">
+      <h2 id="mainPageH2">Take it to go?</h2>
+      <p>
+        You can enjoy Munchies right in your own home. From individual lunch
+        platters to catering options that can feed an entire 200 guest
+        wedding, we have everything to make your evening perfect.
+      </p>
+    </div>
+    <div class="catering-img-container">
+      <img class="catering-img" src="images/catering-image.jpg" />
+    </div>
+  </div>
+  
+  <div class="burger-explode-container">
+    <div class="explodeVideo-container">
+      <video autoplay muted loop class="explodeVideo">
+        <source src="burgerExplosion.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="explode-text">
+      <p>Prepare To Be</p>
+      <h2 id=mindBlown>MIND BLOWN</h2>
+    </div>
+  </div>
+
+  <footer class="footer-container">
+    <div class="address-wrapper">
+      <div class="footer-logo">
         <h1>MUNCHIES</h1>
       </div>
-      <ul class="nav-items">
-        <li class="nav-item">
-          <a class="nav-link" href="/">ABOUT</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./menu">MENU</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/special-events">SPECIAL EVENTS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/reserve">RESERVATION</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/catering">CATERING</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">CONTACT</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/cart">CART</a>
-        </li>
-      </ul>
-    </nav>
-    <div class="container">
-      <div class="fav-food-img-container"></div>
-      <div class="about-container">
-        <h1>GOT THE MUNCHIES?</h1>
-        <p>
-          Voted as the
-          <b>The Best New Restaurant of 2019 by Philadelphia Magazine</b>!
-          Munchies is the best place for all those after work happy hours, has the best food for those 2 am
-          cravings, or - let's be honest - is an all-around PHILLY FAVORITE for every other time of the day. Located
-          in the heart of Philadelphia, Munchies is in the prime location to get
-          your evening going.
-        </p>
-        <br />
-        <br />
-        <!-- link the reserve page here -->
-        <h3>insert reserve button here</h3>
-        <br />
-        <p>
-          Created by Penn LPS Coding Bootcamp survivors Nicholas, Rebeacca, and
-          Min. Inspired by the long, hungry Monday and Wednesday nights after
-          rough days at our 9-5's these survivors endured. They have brought to
-          you the ultimate menu to produce the biggest food coma you ever
-          experienced.
-        </p>
-        <br />
-        <hr />
-        <br />
-        <h5><i>5 Star Ratings From:</i></h5>
-        <br />
-        <img id="critics" src="images/critics.png" />
-      </div>
-      <!-- ALC SECTION -->
-      <div class="alc-container">
-        <div class="beer-container">
-          <img class="alc-img" src="images/beer.jpg" />
+      <div class="location-wrapper">
+        <h2>LOCATION</h2>
+        <div class="location-details">
+          <p>111 Sample Street</p>
+          <p>Philadelphia, PA 19111</p>
+          <p>215.123.1234</p>
+          <p>munchies@gmail.com</p>
         </div>
-        <div class="alc-summary">
-          <h2>Hey Bartender!</h2>
-          <p>
-            Stop by the bar and let us whip up our signature crafted beer and
-            cocktails for you!
-          </p>
-          <li class="drink-menu">
-            <a class="drinks" href="./drinks.html" target="_blank">Drinks</a>
+        <ul class="social-media-items">
+          <li class="social-media-item">
+            <a class="social-media-link" href="#"><i class="fab fa-facebook-f"></i></a>
           </li>
-        </div>
-        <!-- MENU SECTION -->
-      </div>
-      <div class="menu-container">
-        <h1 id="menu-title">Menu</h1>
-        <ul class="food-category-list">
-          <li class="food-category">
-            <a
-              class="food-category-link"
-              href="./breakfast.html"
-              target="_blank"
-              >Breakfast</a
-            >
+          <li class="social-media-item">
+            <a class="social-media-link" href="#"><i class="fab fa-instagram"></i></a>
           </li>
-          <li class="food-category">
-            <a class="food-category-link" href="./lunch.html" target="_blank"
-              >Lunch</a
-            >
-          </li>
-          <li class="food-category">
-            <a class="food-category-link" href="./dinner.html" target="_blank"
-              >Dinner</a
-            >
+          <li class="social-media-item">
+            <a class="social-media-link" href="#"><i class="fab fa-twitter"></i></a>
           </li>
         </ul>
       </div>
-      <!-- SPECIAL EVENTS SECTION -->
-      <div class="special-events-container">
-        <div class="tailgate">
-          <img class="fans-img" src="images/Super_bowl_bar.jpg" />
-        </div>
-        <div class="special-events-summary">
-          <h2>Come Hang With Us!</h2>
-          <p>
-            It's officially FOOTBALL SEASON! Every NFL Sunday enjoy 1 free beer
-            or cocktail on us!
-          </p>
-        </div>
+      <div class="hoursOfOperation">
+        <h2 id="hours">HOURS</h2>
+        <p>M-TH 9am - 10pm</p>
+        <p>Fri 9am - 12pm</p>
+        <p>Sat 10am - 12pm</p>
+        <p>Sun 10am - 9pm</p>
       </div>
-      <!-- CATERING SECTION -->
-      <div class="catering-container">
-        <div class="explodeVideo-container">
-          <video autoplay muted loop class="explodeVideo">
-            <source src="burgerExplosion.mp4" type="video/mp4" />
-          </video>
-          <!-- <img class="platter-img" src="images/catering-mainpage.jpg" /> -->
-        </div>
-        <div class="catering-summary">
-          <h2>Take it to go?</h2>
-          <p>
-            You can enjoy Munchies right in your own home. From individual lunch
-            platters to catering options that can feed an entire 200 guest
-            wedding, we have everything to make your evening perfect.
-          </p>
-        </div>
+      <div class="sign-up-wrapper">
+        <h2>KEEP IN TOUCH</h2>
+        <form action="">
+          <label for="">Enter email and sign up for promotions and other discounts</label>
+          <br />
+          <input type="text" class="form-input" placeholder="Enter email" />
+          <br />
+          <button class="sign-up-btn">Sign Up</button>
+        </form>
       </div>
     </div>
-    <footer class="footer-container">
-      <div class="address-wrapper">
-        <div class="footer-logo">
-          <h1>MUNCHIES</h1>
-        </div>
-        <div class="location-wrapper">
-          <h2>LOCATION</h2>
-          <div class="location-details">
-            <p>111 Sample Street</p>
-            <p>Philadelphia, PA 19111</p>
-            <p>215.123.1234</p>
-            <p>munchies@gmail.com</p>
-          </div>
-          <ul class="social-media-items">
-            <li class="social-media-item">
-              <a class="social-media-link" href="#"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-            </li>
-            <li class="social-media-item">
-              <a class="social-media-link" href="#"
-                ><i class="fab fa-instagram"></i
-              ></a>
-            </li>
-            <li class="social-media-item">
-              <a class="social-media-link" href="#"
-                ><i class="fab fa-twitter"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-        <div class="hoursOfOperation">
-          <h2 id="hours">HOURS</h2>
-          <p>M-TH 9am - 10pm</p>
-          <p>Fri 9am - 12pm</p>
-          <p>Sat 10am - 12pm</p>
-          <p>Sun 10am - 9pm</p>
-        </div>
-        <div class="sign-up-wrapper">
-          <h2>KEEP IN TOUCH</h2>
-          <form action="">
-            <label for=""
-              >Enter email and sign up for promotions and other discounts</label
-            >
-            <br />
-            <input type="text" class="form-input" placeholder="Enter email" />
-            <br />
-            <button class="sign-up-btn">Sign Up</button>
-          </form>
-        </div>
-      </div>
-      <hr />
-      <ul class="credits">
-        <li class="credit-item"><a class="credit-link" href="">Nicholas</a></li>
-        <li class="credit-item"><a class="credit-link" href="">Rebeacca</a></li>
-        <li class="credit-item">
-          <a
-            class="credit-link"
-            href="https://minkkyaw.github.io/Responsive-Portfolio"
-            >Min</a
-          >
-        </li>
-      </ul>
-    </footer>
-  </body>
+    <hr />
+    <ul class="credits">
+      <li class="credit-item"><a class="credit-link" href="">Nicholas</a></li>
+      <li class="credit-item"><a class="credit-link" href="">Rebeacca</a></li>
+      <li class="credit-item">
+        <a class="credit-link" href="https://minkkyaw.github.io/Responsive-Portfolio">Min</a>
+      </li>
+    </ul>
+  </footer>
+</body>
+
 </html>

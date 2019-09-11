@@ -12,6 +12,8 @@ h1 {
 
 h2{
   font-family: 'Luckiest Guy', cursive;
+  -webkit-text-stroke: .1px black;
+
 }
 
 p,
