@@ -58,7 +58,7 @@ const onClickFunction = currentItemQuantity => {
   document.querySelectorAll(".decreaseByOne").forEach((btn, i) =>
     btn.addEventListener("click", e => {
       let currentValue = currentItemQuantity[i].value;
-      let currentId = currentItemQuantity[i].parentElement.dataset["id"];
+      let currentId = currentItemQuantity[i].parentElement.dataset.id;
       if (currentValue !== "1") {
         currentItemQuantity[i].value = parseInt(currentValue) - 1;
         getCurrentSubtotalPrice(currentItemQuantity);
@@ -69,7 +69,7 @@ const onClickFunction = currentItemQuantity => {
   document.querySelectorAll(".increaseByOne").forEach((btn, i) =>
     btn.addEventListener("click", e => {
       let currentValue = currentItemQuantity[i].value;
-      let currentId = currentItemQuantity[i].parentElement.dataset["id"];
+      let currentId = currentItemQuantity[i].parentElement.dataset.id;
       currentItemQuantity[i].value = parseInt(currentValue) + 1;
       getCurrentSubtotalPrice(currentItemQuantity);
       updateCartItems(currentId, parseInt(currentItemQuantity[i].value));
@@ -87,7 +87,7 @@ const onClickFunction = currentItemQuantity => {
     removeBtn.addEventListener("click", e => {
       setTimeout(() => e.target.blur(), 500);
       currentCart.map((cartItem, i) => {
-        if (cartItem.id === e.target.dataset["id"]) {
+        if (cartItem.id === e.target.dataset.id) {
           currentCart.splice(i, 1);
         }
       });

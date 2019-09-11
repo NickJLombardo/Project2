@@ -13,10 +13,10 @@ const subCateArr = function(menus, menuCategory) {
               item.menuCategory === menu.menuCategory
           )
           .map(item => ({
-            id: item["id"],
-            menuName: item["menuName"],
-            menuDescription: item["menuDescription"],
-            menuPrice: item["menuPrice"]
+            id: item.id,
+            menuName: item.menuName,
+            menuDescription: item.menuDescription,
+            menuPrice: item.menuPrice
           }));
     });
   return subCategory;
@@ -103,10 +103,10 @@ const filteringMenus = (menus, menuCategoryInput) => {
     menuItem.addEventListener("click", e => {
       setTimeout(() => e.target.blur(), 300);
       let cartItems = [];
-      let id = e.target.dataset["id"];
-      let name = e.target.dataset["name"];
-      let price = parseFloat(e.target.dataset["price"]);
-      let quantity = parseInt(e.target.dataset["quantity"]);
+      let id = e.target.dataset.id;
+      let name = e.target.dataset.name;
+      let price = parseFloat(e.target.dataset.price);
+      let quantity = parseInt(e.target.dataset.quantity);
       if (localStorage.getItem("cartItems"))
         cartItems = JSON.parse(localStorage.getItem("cartItems"));
       cartItems.push(Object.assign({}, { id, name, price, quantity }));
@@ -122,7 +122,7 @@ const displayMenu = async () => {
   document.querySelectorAll(".food-category").forEach(categoryBtn =>
     categoryBtn.addEventListener("click", e => {
       setTimeout(() => e.target.blur(), 300);
-      filteringMenus(menus, e.target.dataset["category"]);
+      filteringMenus(menus, e.target.dataset.category);
     })
   );
 };
