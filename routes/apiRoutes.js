@@ -112,11 +112,17 @@ module.exports = function(app) {
     else makeReservation(req.body, res);
   });
 
-  app.post("/api/order", (req, res) => {
+  app.get("/api/orders", (req, res) => {
+    db.Order.findAll({}).then(function(result) {
+      res.json(result);
+    });
+  });
+
+  app.post("/api/orders", (req, res) => {
     makeOrder(req.body, res);
   });
 
-  app.get("/api/information", (req, res) => {
+  app.get("/api/informations", (req, res) => {
     db.Information.findAll({}).then(data => res.json(data));
   });
 
