@@ -17,14 +17,15 @@
   height: 500px;
   width: 500px;
   background-color: rgba(255, 255, 255, 0.904);
-  margin: 0 auto;
-  padding-top: 50px;
-  padding-left: 50px;
+  margin: auto;
+  display: flex;
 }
 
 .reserveForm {
-  margin-left: 90px;
-  width: 100px:
+  width: 400px;
+  margin: auto;
+  text-align: center;
+  align-content: center;
 }
 
 .input {
@@ -38,12 +39,4 @@
 ::placeholder {
   color: rgb(127, 127, 131);
   font-family: 'Special Elite';
-}
-
-#reserve {
-  margin-left: 48px;
-}
- 
-.submit {
-  margin-left: 80px;
 }

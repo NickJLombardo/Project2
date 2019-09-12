@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="./styles/nav-bar.css" />
-  <link rel="stylesheet" href="./styles/menu.css" />
-  ``
+  <link rel="stylesheet" href="./styles/index.css" />
+  <link rel="stylesheet" href="./styles/login.css" />
   <link rel="stylesheet" href="./styles/footer.css" />
   <script src="https://kit.fontawesome.com/e99a58f39e.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Special+Elite&display=swap" rel="stylesheet" />
-  <title>Munchies' Menu</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Sign In</title>
 </head>
 
 <body>
@@ -46,23 +47,24 @@
       </li>
     </ul>
   </nav>
-  <div class="container">
-    <video autoplay muted loop id="myVideo">
-      <source src="menuPageHeader.mp4" type="video/mp4" />
-    </video>
-    <div class="menu-container">
-      <h1 id="menu-title">Menu</h1>
-      <div class="food-category-list">
-        <button class="food-category" data-category="Breakfast">
-          Breakfast
-        </button>
-        <button class="food-category" data-category="Lunch">Lunch</button>
-        <button class="food-category" data-category="Dinner">Dinner</button>
-        <button class="food-category" data-category="Drinks">Drinks</button>
+
+  <div class="login-page-container">
+    <div class="login-background-container">
+      <div class="login-form-container">
+        <form class="loginForm" action="/">
+          <h1 id="logIn">Manager Sign In</h1>
+          <i class="material-icons">person</i>
+          <input class="input" type="text" name="name" value="" placeholder=" first and last name">
+          <br>
+          <i class="material-icons">fiber_pin</i>
+          <input class="input" type="text" name="employeeNumber" value="" placeholder=" employee number">
+          <br><br>
+          <input class="submit" type="submit" value="Submit">
+        </form>
       </div>
     </div>
   </div>
-  <div class="menu-items-container"></div>
+
   <footer class="footer-container">
     <div class="address-wrapper">
       <div class="footer-logo">
@@ -115,8 +117,7 @@
       </li>
     </ul>
   </footer>
-  <script src="./js/menu-template.js"></script>
-  <script src="./js/menu.js"></script>
+
 </body>
 
 </html>
