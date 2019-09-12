@@ -1,17 +1,6 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Bitter', serif;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
 .container {
   margin-top: 119px;
+  padding: 20px;
 }
 
 .category-wrapper {
@@ -28,6 +17,7 @@ body {
   justify-content: center;
   border: 2px solid #444444;
   margin: 10px;
+  cursor: pointer;
 }
 
 .category:nth-child(even) {
@@ -47,6 +37,17 @@ body {
   margin: 0;
   user-select: none;
 }
+
+.category-data-table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.category-data-table-data {
+  border: 1px solid #444444;
+}
+
 
 
 

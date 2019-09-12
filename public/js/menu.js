@@ -118,7 +118,9 @@ const filteringMenus = (menus, menuCategoryInput) => {
 const displayMenu = async () => {
   const res = await fetch("./api/menus/");
   const menus = await res.json();
-  filteringMenus(menus);
+  if (localStorage.getItem("category")) {
+    filteringMenus(menus, localStorage.getItem("category"));
+  } else filteringMenus(menus);
   document.querySelectorAll(".food-category").forEach(categoryBtn =>
     categoryBtn.addEventListener("click", e => {
       setTimeout(() => e.target.blur(), 300);
