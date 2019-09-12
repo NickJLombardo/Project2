@@ -10,6 +10,10 @@ h1 {
   color: rgb(201, 87, 12);
 }
 
+#icon {
+    display: none;
+}
+
 h2{
   font-family: 'Luckiest Guy', cursive;
   -webkit-text-stroke: .1px black;
@@ -89,10 +93,40 @@ body {
 }
 
 @media all and (max-width: 900px) {
-  .nav-items {
-    flex-direction: column;
-    align-items: center;
+  #icon {
+      display: contents;
   }
+  .dropbtn {
+      border: none;
+      cursor: pointer;
+    }
+    .nav-bar {
+      display: inline-block;
+      z-index: 1;
+    }
+    .nav-bar:hover {
+      opacity: 1;
+    }
+    .nav-items {
+      display: none;
+     text-align: center;
+      background-color: #f9f9f9;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    
+    .nav-items a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .nav-items a:hover {
+        background-color: #f1f1f1;
+      }
+    
+    .nav-bar:hover .nav-items {
+      display: block;
+    }
 
 }
-

@@ -144,11 +144,11 @@ h5 {
 
 @media all and (max-width: 900px) {
   .about-container {
-    padding: 270px 0;
-    padding-bottom: 0;
+    padding: 5px;
+    font-size: 14px;
   }
   .fav-food-img-container {
-  display: none;
+    background-image: url(../images/responsiveHeaderpic.jpg);  
   }
 
   .catering-container,

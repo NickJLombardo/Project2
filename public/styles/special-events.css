@@ -44,6 +44,9 @@
 
 /* MEDIUM SCREENS.............................. */
 @media all and (max-width: 1200px) {
+  .about-container {
+    padding: 8px;
+  }
   .philly-special-container {
       display: flex;
       flex-direction: column;
@@ -62,12 +65,8 @@
         background-color: rgba(237, 243, 215, 0.89);
         height: 412px;
       text-align: center;
-      padding: 100px;
 
     }
-    #phl {
-      color: rgb(5, 85, 5);
-  }
 }
 
 /* SMALL SCREENS............................ */
@@ -82,20 +81,15 @@
     }
     .flyEagles-img {
       width: 100%;
-      height: 412px;
+      height: 350px;
     }
     .special-summary {
-        order: 2;
-        width: 100%;
-        background-color: rgba(237, 243, 215, 0.89);
-        height: 412px;
-      text-align: center;
-      padding: 100px;
+      width: 100%;
+      background-color: rgba(237, 243, 215, 0.89);
+      height: 412px;
 
     }
-    #phl {
-      color: rgb(5, 85, 5);
-  }
+  
 }
 
 .happyhour-container {
