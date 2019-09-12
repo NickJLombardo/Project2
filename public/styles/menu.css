@@ -93,3 +93,27 @@ h2,h3 {
   outline: none;
   transform: scale(1.05);
 }
+
+@media all and (max-width: 1000px) {
+  .menu-items-container {
+    padding: 20px 0;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .menu-item-subcategories-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .food-category {
+    padding: 8px 8px;
+    font-size: 16px;
+    margin: 0 10px;
+  }
+  .menu-item-add-to-cart {
+    padding: 0 10px;
+  }
+  .menu-item {
+    padding: 10px;
+  }
+}
