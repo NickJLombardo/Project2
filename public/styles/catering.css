@@ -1,14 +1,17 @@
 .catering-container {
   margin-top: 119px;
-  background-image: url('https://avantispeoria.com/wp-content/uploads/2014/04/Catering_Services_92.jpg');
+  /* background-image: url('https://avantispeoria.com/wp-content/uploads/2014/04/Catering_Services_92.jpg'); */
+  background-image: url('./../images/interlaced.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: rgba(59, 59, 59, 0.3);
+  background-color: rgba(59, 59, 59, 0.103);
   background-blend-mode: multiply;
 }
-
+.catering-menu-items-container {
+  padding: 20px;
+}
 .catering-nav-bar {
   display: flex;
   flex: 1 1 auto;
@@ -46,6 +49,7 @@
 
 .menu-items-wrapper {
   margin-top: 10px;
+  margin-bottom: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px 20px;
@@ -53,9 +57,9 @@
 
 .menu-item {
   min-width: 32%;
-  padding: 15px;
+  padding: 10px;
   box-shadow: 0 0 2px #818181;
-  background-color: #feffff;
+  background-color: #ffffff;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -170,3 +174,11 @@ input[type=number] {
   border-radius: 5px;
   cursor: pointer;
 }
+
+@media all and (max-width: 900px) {
+  .menu-items-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
+]
