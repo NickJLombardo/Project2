@@ -50,12 +50,6 @@ const displayByCategory = async category => {
   ).innerHTML = tableInnerHtml;
 };
 
-// displayByCategory("menus");
-displayByCategory("customers");
-// displayByCategory("tables");
-// displayByCategory("reservations");
-// displayByCategory("informations");
-
 document.querySelectorAll(".category").forEach(categoryBtn =>
   categoryBtn.addEventListener("click", e => {
     displayByCategory(e.target.dataset.category);
@@ -67,7 +61,6 @@ document.querySelectorAll(".input-text").forEach(function(input) {
     e.target.innerHTML = dataInput;
     const insertHtml = () => {
       let parentElement = document.querySelector(".data-input").parentElement;
-      console.log(parentElement !== null);
       if (parentElement !== null)
         parentElement.innerHTML = inputText.replace("{%INPUT%}", 1);
     };
