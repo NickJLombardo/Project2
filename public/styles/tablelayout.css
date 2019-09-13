@@ -1,6 +1,4 @@
 .restaurant-layout-container {
-  margin-top: 120px;
-  background-color: #ffffff;
   padding: 40px 20px 20px;
   display: flex;
   flex: 1 1 auto;
@@ -24,6 +22,9 @@
 .floor-label {
   text-align: center;
   text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.904);
+  border: 3px solid #311204;
+  border-top: none;
 }
 
 .entrance {
@@ -80,6 +81,19 @@
 .table-square {
   border-radius: 0px;
   background-color: #42e1fd;
+}
+
+.table-chose {
+  color: #fff;
+  height: 60px;
+  width: 60px;
+  padding: 19px 15px;
+  background-color: rgb(150, 79, 31) !important;
+  margin: 40px auto;
+  cursor: default;
+  box-shadow: 0 0 0 1px #535353;
+  transition: all .5s ease-in;
+  text-align: center;
 }
 
 .table-circle {

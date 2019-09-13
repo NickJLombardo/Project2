@@ -54,14 +54,11 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Customer.associate = function(models) {
-    Customer.hasMany(models.Reservation, {
-      onDelete: "cascade"
-    });
-    Customer.hasMany(models.Table, {
-      onDelete: "cascade"
-    });
-  };
+  // Customer.associate = function(models) {
+  //   Customer.hasMany(models.Table, {
+  //     onDelete: "cascade"
+  //   });
+  // };
 
   return Customer;
 };

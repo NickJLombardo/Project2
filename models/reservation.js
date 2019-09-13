@@ -13,6 +13,22 @@ module.exports = function(sequelize, DataTypes) {
       validate: { min: 1, max: 10 },
       field: "reservation_no_of_people"
     },
+    reservationPhone: {
+      type: DataTypes.STRING,
+      field: "reservation_phone"
+    },
+    reservationEmail: {
+      type: DataTypes.STRING,
+      field: "reservation_email"
+    },
+    reservationDate: {
+      type: DataTypes.DATE,
+      field: "reservation_date"
+    },
+    reservationTime: {
+      type: DataTypes.DATE,
+      field: "reservation_time"
+    },
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: sequelize.literal("NOW()")
@@ -24,7 +40,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Reservation.associate = function(models) {
-    Reservation.belongsTo(models.Customer, {
+    Reservation.belongsTo(models.Table, {
       foreignKey: {
         allowNull: false
       }

@@ -4,36 +4,24 @@ const reservationData = require("../public/data/reservation.js");
 const makeReservation = (reservation, res) => {
   const {
     reservationName,
+    reservationDate,
+    reservationTime,
+    reservationEmail,
     reservationNoOfPeople,
-    tableReservedTime,
-    CustomerId,
-    tableId,
-    menuId
+    reservationPhone,
+    TableId
   } = reservation;
   db.Reservation.create({
     reservationName,
+    reservationDate,
+    reservationTime,
+    reservationEmail,
     reservationNoOfPeople,
-    CustomerId
-  })
-    .then(function(result) {
-      console.log(tableId);
-      db.Table.update(
-        {
-          tableReserved: true,
-          tableReservedTime,
-          tableAvailability: false,
-          CustomerId
-        },
-        {
-          where: {
-            id: tableId
-          }
-        }
-      );
-    })
-    .then(result => {
-      res.json(result);
-    });
+    reservationPhone,
+    TableId
+  }).then(result => {
+    res.json(result);
+  });
 };
 
 const makeOrder = (tableMenus, res) => {
@@ -85,31 +73,18 @@ module.exports = function(app) {
 
   app.get("/api/reservations", function(req, res) {
     let query = {};
-    if (req.query.id) {
-      query.id = req.query.id;
+    if (req.query.reservationDate) {
+      query.reservationDate = req.query.reservationDate;
     }
     db.Reservation.findAll({
-      where: query,
-      include: [db.Customer]
+      where: query
     }).then(function(result) {
       res.json(result);
     });
   });
 
   app.post("/api/reservations", function(req, res) {
-    if (!Object.keys(req.body).includes("tableId"))
-      db.Table.findAll({
-        where: {
-          tableAvailability: true
-        }
-      })
-        .then(function(result) {
-          req.body.tableId = result[0].dataValues.id;
-        })
-        .then(function(result) {
-          makeReservation(req.body, res);
-        });
-    else makeReservation(req.body, res);
+    makeReservation(req.body, res);
   });
 
   app.get("/api/orders", (req, res) => {
