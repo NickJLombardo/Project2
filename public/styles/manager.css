@@ -8,7 +8,10 @@
   flex: 1 1 auto;
   flex-wrap: wrap;
 }
-
+ 
+.category-wrapper-clicked {
+  
+}
 .category {
   min-width: calc((100% - 60px) / 3);
   height: 300px;
@@ -19,7 +22,9 @@
   margin: 10px;
   cursor: pointer;
 }
+.category-clicked {
 
+}
 .category:nth-child(even) {
   background-color: #eaf8fd;
 }

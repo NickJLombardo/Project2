@@ -9,12 +9,13 @@
         "prettier"
       ],
     "parserOptions": {
-    "ecmaVersion": 8,
-    "ecmaFeatures": {
-      "globalReturn": true,
-      "experimentalObjectRestSpread": true
-    }
-  },
+        "parser":"babel-eslint",
+        "ecmaVersion": 8,
+        "ecmaFeatures": {
+        "globalReturn": true,
+        "experimentalObjectRestSpread": true
+        }
+    },
     "rules": {
         "no-duplicate-case":"error",
         "no-empty":"error",
@@ -26,7 +27,7 @@
         "eqeqeq": "error",
         "no-empty-function": "error",
         "no-multi-spaces": "error",
-        "camelcase": "error",
+        "camelcase": "off",
         "indent": [
             "error",
             2

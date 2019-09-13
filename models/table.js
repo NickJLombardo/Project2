@@ -13,15 +13,6 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: true,
       field: "table_availability"
     },
-    tableReserved: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-      field: "table_reserved"
-    },
-    tableReservedTime: {
-      type: DataTypes.DATE,
-      field: "table_reserved_time"
-    },
     tablePeople: {
       type: DataTypes.INTEGER,
       defaultValue: 4,
@@ -38,10 +29,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Table.associate = function(models) {
-    Table.belongsTo(models.Customer, {
-      foreignKey: {
-        allowNull: false
-      }
+    Table.hasMany(models.Reservation, {
+      onDelete: "cascade"
     });
   };
 
