@@ -19,9 +19,12 @@ h2,h3 {
   color: #fff;
   padding: 20px 0;
   margin-top: -8px;
+  background-color: rgba(7, 22, 109, 0.411);
+  background-image: url('./../images/dust_scratches.png');
 }
 #menu-title {
   color: white;
+  -webkit-text-stroke: .5px rgb(201, 87, 12);
 }
 
 .food-category-list {
@@ -39,20 +42,24 @@ h2,h3 {
   font-size: 16px;
   cursor: pointer;
   margin: 0 20px;
-}
+  font-family: 'Special Elite', cursive;
+  }
+  
+  .food-category-link:hover {
+    box-shadow: 0 12px 16px 0 rgba(255, 252, 252, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.404);
+  }
+
 .food-category:hover {
-  box-shadow: 0 12px 16px 0 rgba(255, 252, 252, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
+  box-shadow: 0 12px 16px 0 rgba(255, 252, 252, 0.24), 0 17px 50px 0 rgba(44, 9, 9, 0.19);
 }
-.food-category:hover {
-  box-shadow: 0 12px 16px 0 rgba(255, 252, 252, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
-}
+
 .menu-items-container {
-  color: rgb(255, 221, 189);
-  background-image: url('./../images/menu-background.jpg');
+  color: rgb(216, 145, 87);
+  background-image: url('./../images/dust_scratches.png');
   background-blend-mode: multiply;
   background-size: contain;
   padding: 20px;
-  background-color: rgba(49, 49, 49, 0.5);
+  /* background-color: rgba(49, 49, 49, 0.5); */
 }
 .menu-item-subcategories-wrapper{
   display: grid;
@@ -101,6 +108,16 @@ h2,h3 {
 }
 
 @media all and (max-width: 800px) {
+  .nav-bar {
+    opacity: .4;
+  }
+  .dropbtn {
+    display: none;
+  }
+  /* #icon {
+    opacity: 1;
+    display: contents;
+} */
   .menu-item-subcategories-wrapper {
     grid-template-columns: 1fr;
   }
