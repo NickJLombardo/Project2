@@ -14,6 +14,7 @@
 
 .floor-layout-wrapper {
   min-width: 500px;
+   margin: 40px 0;
 }
 
 .floor-layout {
@@ -31,6 +32,7 @@
   background-color: rgba(255, 255, 255, 0.904);
   border: 3px solid #311204;
   border-top: none;
+  margin-bottom: 20px;
 }
 
 .entrance {

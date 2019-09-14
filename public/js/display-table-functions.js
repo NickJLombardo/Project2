@@ -1,3 +1,4 @@
+let categoryApi;
 const columnNameFormatter = columnName => {
   let captColumnName = columnName.toUpperCase();
   let indexArr = new Array();
@@ -56,11 +57,11 @@ const displayByCategory = async (categoryAndClass, searchQuery) => {
   let updateArr = new Array();
   let i = 0;
   let initialValue;
-  let categoryApi;
+
   document.querySelectorAll(".input-text").forEach(inputText => {
     {
       inputText.addEventListener("focus", e => {
-        initialValue = e.target.value;
+        initialValue = e.target.textContent;
       });
       inputText.addEventListener("focusout", e => {
         let id = parseInt(e.target.parentElement.parentElement.dataset.id);
@@ -70,17 +71,13 @@ const displayByCategory = async (categoryAndClass, searchQuery) => {
           columnNameFormatter(columnName)
             .split(" ")[0]
             .toLowerCase() + "s";
-        if (initialValue !== e.target.value) {
+        if (initialValue !== value) {
           let idArr = new Array();
           updateArr.map(update => idArr.push(update.id));
-          console.log(idArr);
           if (idArr.includes(id)) {
             let index = idArr.indexOf(id);
-            console.log(categoryApi);
-            updateArr[index].categoryApi = categoryApi;
             updateArr[index][columnName] = value;
           } else {
-            updateArr[i].categoryApi = categoryApi;
             updateArr[i] = { id, [columnName]: value };
             i++;
           }
@@ -92,6 +89,7 @@ const displayByCategory = async (categoryAndClass, searchQuery) => {
     .querySelector(".reservation-update-btn")
     .addEventListener("click", e => {
       let url = "/api/reservations/";
+      if (categoryApi) url = `/api/${categoryApi}/`;
       console.log(updateArr);
       updateArr.map(updateData => {
         fetch(url, {
