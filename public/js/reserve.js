@@ -15,7 +15,7 @@ const dateValidation = date => {
   ) {
     return "Invalid Date";
   }
-  return `${yyyy}-${mm}-${dd}`;
+  return `${yyyy}-${mm < 10 ? `0${mm}` : mm}-${dd}`;
 };
 
 const timeValidation = inputTime => {
@@ -49,17 +49,26 @@ const postReservation = async data => {
   }
 };
 
-const getReservation = () => {
-  let url = "./api/reservations/";
-  fetch(url)
-    .then(res => res.json())
-    .then(res => alert("reserved"));
-};
-
 const createRandomTableId = arr => {
   let ranNum = Math.floor(Math.random() * 22 + 1);
   return arr.includes(ranNum) ? createRandomTableId(arr) : ranNum;
 };
+
+const searchReservation = async searchInput => {
+  displayByCategory(
+    ["reservations", ".search-result-wrapper"],
+    `reservationEmail=${searchInput}&reservationPhone=${searchInput}`
+  );
+};
+
+document.querySelector(".search-btn").addEventListener("click", e => {
+  e.preventDefault();
+  let form = document.querySelector(".search-reservation-form");
+  let searchInput = form["search-input"].value;
+  if (searchInput) {
+    searchReservation(searchInput);
+  }
+});
 
 document.querySelector(".submit-btn").addEventListener("click", e => {
   e.preventDefault();
@@ -128,6 +137,9 @@ document.querySelector(".submit-btn").addEventListener("click", e => {
             postReservation(reservation);
             localStorage.setItem("table", "");
             tableIdArr = new Array();
+            document
+              .querySelectorAll(".input")
+              .forEach(input => (input.value = ""));
           }
         });
     }
