@@ -68,3 +68,6 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 5px;
 }
 
+.search-result-wrapper {
+  background-color: #fff;
+}

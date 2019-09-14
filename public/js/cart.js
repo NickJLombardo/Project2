@@ -1,3 +1,32 @@
+// const stripe = Stripe("pk_test_BUkd0ZXAj6m0q0jMyRgBxNns00PPtgvjjr");
+// const hideAlert = () => {
+//   const el = document.querySelector(".alert");
+//   if (el) el.parentElement.removeChild(el);
+// };
+
+// const showAlert = (type, msg, time = 7) => {
+//   hideAlert();
+//   const markup = `<div class="alert alert--${type}">${msg}</div>`;
+//   document.querySelector("body").insertAdjacentHTML("afterbegin", markup);
+//   window.setTimeout(hideAlert, time * 1000);
+// };
+
+// const checkoutSession = async (name, price) => {
+//   try {
+//     let session = await fetch(
+//       `/api/v1/bookings/checkout-session/${name}/${price}`
+//     );
+//     session = await session.json();
+//     console.log(session);
+//     await stripe.redirectToCheckout({
+//       sessionId: session.data.session.id
+//     });
+//   } catch (err) {
+//     showAlert("error", err);
+//   }
+// };
+// checkoutSession("min", 100);
+
 const textReplace = (cartFormat, item, idx, x) => {
   const { id, name, price, quantity } = item;
   let output = cartFormat.replace(`{%ID%}`, idx);
@@ -95,14 +124,10 @@ const onClickFunction = currentItemQuantity => {
       localStorage.setItem("cartItems", JSON.stringify(currentCart));
     })
   );
-  document.querySelector(".order-btn").addEventListener("click", e => {
-    setTimeout(() => e.target.blur(), 500);
-    console.log(e.target);
-  });
-  document.querySelector(".check-out-btn").addEventListener("click", e => {
-    setTimeout(() => e.target.blur(), 500);
-    console.log(e.target);
-  });
+  // document.querySelector(".order-btn").addEventListener("click", e => {
+  //   setTimeout(() => e.target.blur(), 500);
+  //   console.log(e.target);
+  // });
 };
 
 const cartdisplay = currentCart => {
@@ -116,10 +141,29 @@ const cartdisplay = currentCart => {
     getCurrentSubtotalPrice(currentItemQuantity);
     onClickFunction(currentItemQuantity);
   }
+  document.querySelector(".check-out-btn").addEventListener("click", e => {
+    setTimeout(() => e.target.blur(), 500);
+    let totalPrice = document.querySelector(".cart-total").textContent;
+    let email = document.querySelector(".email-input").value;
+    if (parseInt(totalPrice) === 0)
+      document.querySelector(".invalid-text").textContent =
+        "Add items before checkout";
+    else {
+      if (!email)
+        document.querySelector(".invalid-text").textContent =
+          "Enter your email to checkout";
+      else {
+        document.querySelector(".invalid-text").textContent = "";
+        console.log(totalPrice, email);
+        // checkoutSession(email, toalPrice);
+      }
+    }
+  });
 };
 
 cartdisplay(currentCart);
 document.querySelector(".empty-cart-btn").addEventListener("click", e => {
   noItemDisplay();
   localStorage.setItem("cartItems", JSON.stringify([]));
+  document.querySelector(".invalid-text").textContent = "";
 });

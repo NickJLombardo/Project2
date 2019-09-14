@@ -8,7 +8,7 @@ let menuItemCategoryHtml = `<div class="catering-menu-item-category-wrapper">
         </div> 
       </div>`;
 let menuItemSubategoryHtml = `<div class="menu-item-subcategory-wrapper">
-          <h3>{%SUBCATEGORY%}</h3>
+          <h3 class="catering-menu-sub-title">{%SUBCATEGORY%}</h3>
           <hr />
           {%MENUITEMS%}
         </div>`;
@@ -17,7 +17,9 @@ let menuItemHtml = `<div class="menu-item" data-id="{%ID%}" data-name="{%NAME%}"
               <p>{%NAME%}</p>
               <p>$ {%PRICE%}</p>
             </div>
+            <hr>  
             <p class="menu-item-description">{%DESCRIPTION%}</p>
+            {%HR%}
             <div class="menu-item-details-wrapper">
               <p>Minimun Order - {%MINORDER%}</p>           
             </div>
@@ -68,6 +70,7 @@ const textReplace = (cartFormat, item) => {
     /{%DESCRIPTION%}/g,
     menuDescription === null ? "" : menuDescription
   );
+  output = output.replace("{%HR%}", menuDescription === null ? "" : "<hr>");
   output = output.replace(/{%MINORDER%}/g, menuCateringMinOrder);
   return output;
 };
@@ -164,35 +167,13 @@ const filteringMenus = (menus, menuCategoryInput) => {
       console.log(1);
     })
   );
-  document.querySelector(".add-to-cart-btn").addEventListener("click", e => {
-    let id = currentMenuItem.id;
-    let quantity = parseInt(currentItemQuantity.value);
-    localStorage.setItem("currentCart", JSON.stringify([{ id, quantity }]));
-    console.log(JSON.parse(localStorage.getItem("currentCart"))[0].id);
-  });
-  document.querySelector(".decreaseByOne").addEventListener("click", e => {
-    let currentValue = document.querySelector(".current-item-quantity").value;
-    if (currentValue !== "0")
-      document.querySelector(".current-item-quantity").value =
-        parseInt(currentValue) - 1;
-  });
-  document.querySelector(".increaseByOne").addEventListener("click", e => {
-    let currentValue = document.querySelector(".current-item-quantity").value;
-    document.querySelector(".current-item-quantity").value =
-      parseInt(currentValue) + 1;
-  });
-  window.addEventListener("click", function(e) {
-    if (!document.querySelector(".current-menu-item").contains(e.target)) {
-      currentItem.style.display = "none";
-    }
-  });
 };
 
 const displayMenu = async () => {
   const res = await fetch("./api/menus/");
   const menus = await res.json();
   filteringMenus(menus);
-  document.querySelectorAll(".food-category").forEach(categoryBtn =>
+  document.querySelectorAll(".catering-category-btn").forEach(categoryBtn =>
     categoryBtn.addEventListener("click", e => {
       e.target.blur();
       filteringMenus(menus, e.target.dataset.category);

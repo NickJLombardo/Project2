@@ -41,14 +41,14 @@ let additionalCartRow = `<tr class="cart-item-table-body-row taxes-row">
               class="cart-item-table-data cart-item-table-data-number cart-total"
             >0.00</td>
           </tr>
-          <tr class="cart-item-table-body-row">
+          <tr class="cart-item-table-body-row border-top">
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
+            <td>Enter email</td>
             <td class="cart-item-table-data">
-              <button class="order-btn btn">Order</button>
+              <input type="text" class="email-input" placeholder="example@email.com" />
             </td>
           </tr>
           <tr class="cart-item-table-body-row">
