@@ -2,7 +2,7 @@ require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRETE_KEY);
 const db = require("../models");
 const reservationData = require("../public/data/reservation.js");
-const Op = require("Sequelize").Op;
+const Op = require("sequelize").Op;
 
 const makeReservation = (reservation, res) => {
   const {
@@ -33,8 +33,6 @@ const makeOrder = (tableMenus, res) => {
   );
 };
 
-// Sun Sep 22 2019 13:00:00 GMT-0400 (Eastern Daylight Time)
-
 const getMonthInNumber = month => {
   let months = [
     "Jan",
@@ -54,7 +52,6 @@ const getMonthInNumber = month => {
 };
 
 const separateDateTime = datetime => {
-  console.log(datetime);
   let [day, mm, dd, yyyy, time, timeZone] = datetime.split(" ");
   time = time.split(".")[0];
   let [hour, min, sec] = time.split(":");
@@ -153,6 +150,33 @@ module.exports = function(app) {
 
   app.put("/api/reservations/", function(req, res) {
     db.Reservation.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(result) {
+      res.json(result);
+    });
+  });
+  app.put("/api/tables/", function(req, res) {
+    db.Table.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(result) {
+      res.json(result);
+    });
+  });
+  app.put("/api/menus/", function(req, res) {
+    db.Menu.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(result) {
+      res.json(result);
+    });
+  });
+  app.put("/api/informations/", function(req, res) {
+    db.Information.update(req.body, {
       where: {
         id: req.body.id
       }

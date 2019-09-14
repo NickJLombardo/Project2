@@ -66,6 +66,8 @@ document.querySelector(".search-btn").addEventListener("click", e => {
   let form = document.querySelector(".search-reservation-form");
   let searchInput = form["search-input"].value;
   if (searchInput) {
+    let container = document.querySelector(".search-result-wrapper");
+    container.style.padding = "20px";
     searchReservation(searchInput);
   }
 });
@@ -172,10 +174,10 @@ for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
-    if (content.style.maxHeight){
+    if (content.style.maxHeight) {
       content.style.maxHeight = null;
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
-    } 
+    }
   });
 }

@@ -1,30 +1,37 @@
-// const stripe = Stripe("pk_test_BUkd0ZXAj6m0q0jMyRgBxNns00PPtgvjjr");
-// const hideAlert = () => {
-//   const el = document.querySelector(".alert");
-//   if (el) el.parentElement.removeChild(el);
-// };
+const stripe = Stripe("pk_test_BUkd0ZXAj6m0q0jMyRgBxNns00PPtgvjjr", {
+  betas: ["checkout_beta_4"]
+});
+const hideAlert = () => {
+  const el = document.querySelector(".alert");
+  if (el) el.parentElement.removeChild(el);
+};
 
-// const showAlert = (type, msg, time = 7) => {
-//   hideAlert();
-//   const markup = `<div class="alert alert--${type}">${msg}</div>`;
-//   document.querySelector("body").insertAdjacentHTML("afterbegin", markup);
-//   window.setTimeout(hideAlert, time * 1000);
-// };
+const showAlert = (type, msg, time = 7) => {
+  hideAlert();
+  const markup = `<div class="alert alert--${type}">${msg}</div>`;
+  document.querySelector("body").insertAdjacentHTML("afterbegin", markup);
+  window.setTimeout(hideAlert, time * 1000);
+};
 
-// const checkoutSession = async (name, price) => {
-//   try {
-//     let session = await fetch(
-//       `/api/v1/bookings/checkout-session/${name}/${price}`
-//     );
-//     session = await session.json();
-//     console.log(session);
-//     await stripe.redirectToCheckout({
-//       sessionId: session.data.session.id
-//     });
-//   } catch (err) {
-//     showAlert("error", err);
-//   }
-// };
+const checkoutSession = async (name, price) => {
+  try {
+    let session = await fetch(
+      `/api/bookings/checkout-session/${name}/${price}`
+    );
+    session = await session.json();
+    await stripe.redirectToCheckout({
+      items: [
+        // Replace with the ID of your SKU
+        { ["name"]: name, ["price"]: price }
+      ],
+      successUrl: "https://your-website.com/success",
+      cancelUrl: "https://your-website.com/canceled"
+      // sessionId: session.data.session.id
+    });
+  } catch (err) {
+    showAlert("error", err);
+  }
+};
 // checkoutSession("min", 100);
 
 const textReplace = (cartFormat, item, idx, x) => {
@@ -155,7 +162,7 @@ const cartdisplay = currentCart => {
       else {
         document.querySelector(".invalid-text").textContent = "";
         console.log(totalPrice, email);
-        // checkoutSession(email, toalPrice);
+        checkoutSession(email, totalPrice);
       }
     }
   });

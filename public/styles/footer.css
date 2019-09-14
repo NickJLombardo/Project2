@@ -110,6 +110,10 @@
     padding-bottom: 25px;
     padding-top: 18px;
   }
+  .social-media-items {
+    width: 200px;
+    margin: 0 auto;
+  }
   .sign-up-wrapper {
     flex-direction: column;
     text-align: center;

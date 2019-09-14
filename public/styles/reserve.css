@@ -68,6 +68,46 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 5px;
 }
 
-.search-result-wrapper {
-  background-color: #fff;
+.search-reservation-form {
+  width: 500px;
+  background-color: rgba(255, 255, 255, 0.905);
+  margin: 20px auto;
+  padding: 20px;
 }
+
+.search-reservation-form input{
+  width: 400px;
+  padding: 5px;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: 1px solid #444444;
+  margin: 10px 0;
+}
+
+.search-reservation-form input:focus{
+  outline: none;
+}
+
+.search-result-wrapper {
+  width: 1000px;
+  background-color: rgba(255, 255, 255, 0.905);
+  margin: 0 auto 20px;
+}
+
+.search-btn {
+  border: none !important;
+  box-shadow: 0 0 3px rgba(46, 46, 46, 0.4)
+}
+
+.category-data-table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.category-data-table-data {
+  border: 1px solid #444444;
+}
+
+

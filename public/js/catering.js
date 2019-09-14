@@ -162,9 +162,7 @@ const filteringMenus = (menus, menuCategoryInput) => {
       let className = "menu-item";
       let node = e.target;
       let id = getId(node, className);
-      currentItem.style.display = "flex";
       currentMenuItem.setAttribute("id", id);
-      console.log(1);
     })
   );
 };
