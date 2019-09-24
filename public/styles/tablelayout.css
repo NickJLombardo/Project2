@@ -155,3 +155,9 @@
     align-items: center;
   }
 }
+
+@media all and (max-width: 600px) {
+  .floor-layout-wrapper  {
+    min-width: 100%;
+  }
+}

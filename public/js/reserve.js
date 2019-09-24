@@ -83,16 +83,19 @@ document.querySelector(".submit-btn").addEventListener("click", e => {
       dateValidation(form.date.value.trim()) === "Invalid Date" &&
       timeValidation(form.time.value.trim()) === "Invalid time format"
     ) {
-      document.querySelector(".invalid-text").textContent =
+      document.querySelector(".reserve-invalid-text").textContent =
         "Invalid Date and Time";
     } else if (
       dateValidation(form.date.value.trim()) !== "Invalid Date" &&
       timeValidation(form.time.value.trim()) === "Invalid time format"
     )
-      document.querySelector(".invalid-text").textContent = "Invalid Time";
-    else document.querySelector(".invalid-text").textContent = "Invalid Date";
+      document.querySelector(".reserve-invalid-text").textContent =
+        "Invalid Time";
+    else
+      document.querySelector(".reserve-invalid-text").textContent =
+        "Invalid Date";
   } else {
-    document.querySelector(".invalid-text").textContent = "";
+    document.querySelector(".reserve-invalid-text").textContent = "";
     let reservationDate = dateValidation(form.date.value.trim());
     let reservationTime =
       dateValidation(form.date.value.trim()) +
@@ -107,7 +110,8 @@ document.querySelector(".submit-btn").addEventListener("click", e => {
       reservationEmail === "" ||
       reservationPhone === ""
     ) {
-      document.querySelector(".invalid-text").textContent = "Enter all inputs";
+      document.querySelector(".reserve-invalid-text").textContent =
+        "Enter all inputs";
     } else {
       let url = `./api/reservations/?reservationDate=${reservationDate}T00:00:00.000Z`;
       let tableIdArr = new Array();
@@ -177,7 +181,11 @@ for (i = 0; i < coll.length; i++) {
     if (content.style.maxHeight) {
       content.style.maxHeight = null;
     } else {
-      content.style.maxHeight = content.scrollHeight + "px";
+      if (this.scrollWidth < 1060) {
+        content.style.maxHeight = content.scrollHeight * 2 + "px";
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
     }
   });
 }
