@@ -99,7 +99,6 @@ let footerTemplate = `<div class="address-wrapper">
       </div>
       <hr />
       <ul class="credits">
-        <li class="credit-item"><a class="credit-link" href="">Nicholas</a></li>
         <li class="credit-item">
           <a 
             class="credit-link" 
