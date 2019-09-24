@@ -68,15 +68,19 @@ h5 {
 
 .reservePage-button,
 .food-category-link {
+  width: 100px;
   background-color: rgba(255, 153, 0, 0.952);
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 0;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
   cursor: pointer;
+}
+
+.reservePage-button {
+  width: 200px;
 }
 
 .food-category-link:hover {
@@ -148,7 +152,7 @@ h5 {
     font-size: 14px;
   }
   .fav-food-img-container {
-    background-image: url(../images/responsiveHeaderpic.jpg);  
+    background-image: url(../images/responsiveHeaderpic.jpg);
   }
 
   .catering-container,
@@ -168,5 +172,9 @@ h5 {
 
   .menu-container {
     background-image: url(../images/responsive-menu-background.jpeg);
+  }
+  
+  .food-category-link {
+    width: 90px;
   }
 }

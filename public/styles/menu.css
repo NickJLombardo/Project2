@@ -8,11 +8,13 @@ h2,h3 {
   margin-top: -30px;
 }
 
+
 /* Add some content at the bottom of the video/page */
 .container {
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
 }
+
 
 .menu-container {
   text-align: center;
@@ -29,7 +31,7 @@ h2,h3 {
 
 .food-category-list {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 .food-category {
   background-color: rgba(255, 153, 0, 0.952);
@@ -41,13 +43,8 @@ h2,h3 {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  margin: 0 20px;
   font-family: 'Special Elite', cursive;
-  }
-  
-  .food-category-link:hover {
-    box-shadow: 0 12px 16px 0 rgba(255, 252, 252, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.404);
-  }
+}
 
 .food-category:hover {
   box-shadow: 0 12px 16px 0 rgba(255, 252, 252, 0.24), 0 17px 50px 0 rgba(44, 9, 9, 0.19);
@@ -107,25 +104,23 @@ h2,h3 {
   }
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 900px) {
   .nav-bar {
-    opacity: .4;
-  }
-  .dropbtn {
-    display: none;
-  }
-  /* #icon {
     opacity: 1;
-    display: contents;
-} */
+  }
+  .logo {
+    height: 115px;
+  }
+  #icon {
+    opacity: 1;
+}
   .menu-item-subcategories-wrapper {
     grid-template-columns: 1fr;
   }
 
   .food-category {
-    padding: 8px 8px;
-    font-size: 16px;
-    margin: 0 10px;
+    padding: 8px 0;
+    width: 85px;
   }
   .menu-item-add-to-cart {
     padding: 0 10px;
